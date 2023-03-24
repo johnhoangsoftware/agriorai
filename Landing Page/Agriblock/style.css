@@ -563,7 +563,7 @@ ul.dropdown li a:after {
 .main-menu ul li ul.dropdown li a:hover {
 	background: linear-gradient(238.45deg, #42D2FF 3.32%, #49e513 98.6%);
 	-webkit-text-fill-color: transparent;
-	-webkit-background-clip: text
+	-webkit-background-clip: text;
 }
 
 .main-menu ul li ul.dropdown li {
