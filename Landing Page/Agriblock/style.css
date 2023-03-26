@@ -863,6 +863,11 @@ ul.dropdown li a:after {
 	font-weight: 700;
 }
 
+.lauchapp .skill-btn:hover {
+	color: #323657;
+	background-color: #fff
+}
+
 .learnmore {
 	margin-top: 25px;
 	position: relative;
@@ -1303,6 +1308,9 @@ ul.dropdown li a:after {
 .testi-slider-text {
 	margin-top: 30px;
 	padding: 0 0 0 15px;
+	background-image: linear-gradient(to bottom right, rgba(46, 204, 113, 0.5), rgba(52, 152, 219, 0.5));
+	padding: 20px;
+	border-radius: 10px;
 }
 
 .right-quote {
