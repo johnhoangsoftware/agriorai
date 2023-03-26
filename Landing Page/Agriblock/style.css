@@ -1231,7 +1231,7 @@ ul.dropdown li a:after {
 }
 
 .home-expertise-text {
-	text-align: right;
+	text-align: left;
 	padding-right: 70px;
 	position: relative;
 	z-index: 1
@@ -1308,7 +1308,7 @@ ul.dropdown li a:after {
 .testi-slider-text {
 	margin-top: 30px;
 	padding: 0 0 0 15px;
-	background-image: linear-gradient(to bottom right, rgba(46, 204, 113, 0.5), rgba(52, 152, 219, 0.5));
+	/* background-image: linear-gradient(to bottom right, rgba(46, 204, 113, 0.5), rgba(52, 152, 219, 0.5)); */
 	padding: 20px;
 	border-radius: 10px;
 }
@@ -3213,3 +3213,4 @@ footer p {
 	background: linear-gradient(252.62deg, #84FC6A 8.92%, #48D6F2 96.59%);
 	border: 2px solid transparent
 }
+
