@@ -595,12 +595,12 @@ ol ul {
   }
 }
 
-.rn-section-gapTop {
+/* .rn-section-gapTop {
   padding-top: 100px;
-}
+} */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .rn-section-gapTop {
-    padding-top: 80px;
+    min-width: 768px;
   }
 }
 @media only screen and (max-width: 767px) {
@@ -12584,14 +12584,14 @@ span.rn-badge-card::before {
 ---------------------------*/
 .rn-nft-mid-wrapper {
   padding-left: 320px;
-  padding-right: 420px;
+  padding-right: 390px;
 }
-@media only screen and (min-width: 1200px) and (max-width: 1599px) {
+/* @media only screen and (min-width: 1200px) and (max-width: 1599px) {
   .rn-nft-mid-wrapper {
     padding-left: 320px;
     padding-right: 30px;
   }
-}
+} */
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .rn-nft-mid-wrapper {
     padding-left: 320px;
@@ -12739,7 +12739,7 @@ span.rn-badge-card::before {
 .rn-top-bar-area {
   display: flex;
   justify-content: space-between;
-  padding: 25px 0;
+  padding: 25px 25px;
   align-items: center;
   position: relative;
 }
@@ -12847,9 +12847,9 @@ span.rn-badge-card::before {
   height: 100vh;
   min-height: 100vh;
   top: 0;
-  width: 390px;
+  width: 330px;
 }
-@media only screen and (min-width: 1200px) and (max-width: 1599px) {
+/* @media only screen and (min-width: 1200px) and (max-width: 1599px) {
   .header-right-fixed {
     position: static;
     right: 0;
@@ -12860,7 +12860,7 @@ span.rn-badge-card::before {
     padding-left: 320px;
     padding-right: 30px;
   }
-}
+} */
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .header-right-fixed {
     position: static;
