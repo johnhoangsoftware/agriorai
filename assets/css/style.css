@@ -176,10 +176,11 @@ body::before {
   position: absolute;
   left: 0;
   top: 0;
-  background-image: url("../images/bg/noise.gif");
+  background-image: linear-gradient(to bottom, #2E8B57, #ade644);
+  opacity: 0.8;
   z-index: -1;
-  background-color: rebeccapurple;
-  opacity: 0.05;
+  /* background-color: rebeccapurple;
+  opacity: 0.05; */
 }
 
 h1,
@@ -11958,7 +11959,7 @@ input[type=search]::-webkit-search-results-decoration {
 }
 
 .left-header-style .logo-area a img {
-  max-width: 110px;
+  max-width: 200px;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -17474,8 +17475,8 @@ button .small-image {
   position: absolute;
   right: 30px;
   z-index: 3;
-  color: var(--color-body);
-  opacity: 0.1;
+  color: #ffffff;
+  opacity: 0.5;
   top: 50%;
   transform: translateY(-50%);
   transition: 0.4s;
@@ -17961,7 +17962,7 @@ button .small-image {
   bottom: 0;
   left: 0;
   border-radius: 15px;
-  background-image: linear-gradient(100deg, #13131d, #0398ed);
+  background-image: linear-gradient(100deg, #13131d, #03ed56);
   background-repeat: repeat-x;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
@@ -21637,6 +21638,7 @@ tbody.ranking tr td .thumbnail img {
 
 .container {
   padding: 2px 16px;
+  margin: 30px 0 0 0;
 }
 
 .pure-material-button-contained {
@@ -23996,7 +23998,7 @@ body.active-light-mode {
   background: #ffffff;
 }
 .active-light-mode .product-style-one::before {
-  background-image: linear-gradient(100deg, #fff, #0398ed);
+  background-image: linear-gradient(100deg, #fff, #03ed56);
 }
 .active-light-mode .logo-custom-css .logo-dark {
   display: block;
@@ -24167,4 +24169,6 @@ body.active-light-mode {
 .active-light-mode .bg-image-svg-1.with-down-shadow::after {
   background-image: linear-gradient(to top, #0c0c2100 0%, #edf0f2ab 87%);
 }
+
+
 /*# sourceMappingURL=../maps/style.css.map */
