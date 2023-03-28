@@ -12848,6 +12848,7 @@ span.rn-badge-card::before {
   min-height: 100vh;
   top: 0;
   width: 330px;
+  margin-top: 25px;
 }
 /* @media only screen and (min-width: 1200px) and (max-width: 1599px) {
   .header-right-fixed {
