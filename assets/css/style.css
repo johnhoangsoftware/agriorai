@@ -8196,7 +8196,7 @@ Copyright (c) 2015 Daniel Eden
   animation-name: flash;
 }
 
-/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
+
 @-webkit-keyframes pulse {
   from {
     -webkit-transform: scale3d(1, 1, 1);
@@ -12584,7 +12584,7 @@ span.rn-badge-card::before {
 ---------------------------*/
 .rn-nft-mid-wrapper {
   padding-left: 320px;
-  padding-right: 390px;
+  padding-right: 360px;
 }
 /* @media only screen and (min-width: 1200px) and (max-width: 1599px) {
   .rn-nft-mid-wrapper {
@@ -22523,6 +22523,7 @@ fieldset.checkbox-group {
 
 .single-community-box {
   padding: 30px;
+  margin-bottom: 25px;
   background: var(--background-color-1);
   border-radius: 8px;
   border: 1px solid var(--color-border);
@@ -22562,6 +22563,7 @@ fieldset.checkbox-group {
 }
 .single-community-box .community-bx-header .header-left .name-date a.name {
   margin-bottom: 5px;
+  font-size: 24px;
 }
 .single-community-box .community-bx-header .header-right .product-share-wrapper {
   margin-top: 0;
@@ -22576,7 +22578,7 @@ fieldset.checkbox-group {
   margin-bottom: 15px;
 }
 .single-community-box .community-content img.community-img {
-  margin-bottom: 15px;
+  max-width: 60%;
   border-radius: 6px;
 }
 .single-community-box .community-content .tags {
@@ -24169,6 +24171,40 @@ body.active-light-mode {
 .active-light-mode .bg-image-svg-1.with-down-shadow::after {
   background-image: linear-gradient(to top, #0c0c2100 0%, #edf0f2ab 87%);
 }
+
+
+
+
+.stars {
+  display: inline-block;
+  font-size: 24px;
+  font-family: FontAwesome;
+  color: #ffd700;
+  margin: 0px 0px 20px 20px;
+}
+
+.star {
+  color: gray;
+}
+
+.star:nth-child(-n + 4) {
+  color: yellow;
+}
+
+.info-buy {
+  display: inline-block;
+  font-size: 18px;
+  margin: 0px 0px 22px 4px;
+}
+
+.info-buy-shop {
+  display: inline-block;
+  font-size: 24px;
+  margin: 0px 0px 24px 4px;
+}
+
+
+
 
 
 /*# sourceMappingURL=../maps/style.css.map */
