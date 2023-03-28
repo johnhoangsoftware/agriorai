@@ -13897,7 +13897,7 @@ button.btn.btn-large {
 .rn-progress-parent::after {
   position: absolute;
   font-family: "feather" !important;
-  content: "\e914";
+  content: "↑";
   text-align: center;
   line-height: 46px;
   font-size: 24px;
@@ -13918,7 +13918,7 @@ button.btn.btn-large {
 .rn-progress-parent::before {
   position: absolute;
   font-family: "feather" !important;
-  content: "\e914";
+  content: "↑";
   text-align: center;
   line-height: 46px;
   font-size: 24px;
