@@ -22,7 +22,7 @@ app = FastAPI()
 
 @app.get("/")
 async def index():
-      return "AGRI"
+      return "AGRIBLOCK"
 
 @app.post("/predict")
 async def predict(file: UploadFile = File(...)):

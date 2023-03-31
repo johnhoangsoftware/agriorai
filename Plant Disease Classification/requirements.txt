@@ -11,3 +11,4 @@ matplotlib
 scikit-learn
 scipy
 tqdm
+python-multipart

@@ -161,9 +161,7 @@ model_path = './plant-disease-model.pth'
 model.load_state_dict(torch.load(model_path,map_location=torch.device('cpu')))
 model.eval()
 
-# Đường dẫn đến ảnh cần dự đoán
-image_path = './test/PotatoEarlyBlight4.JPG'
-print(predict_image(image_path, model))
+
 
 
 # build api with FastAPI
@@ -171,7 +169,7 @@ app = FastAPI()
 
 @app.get("/")
 def read_root():
-    return {"Hello": "World"}
+    return "AGRIBLOCK"
 
 @app.post("/predict")
 async def predict(file: UploadFile = File(...)):
@@ -184,4 +182,31 @@ async def predict(file: UploadFile = File(...)):
     return {"prediction": classes[preds[0].item()]}
 
 
-# re
+""" # requirements.txt
+fastapi
+uvicorn
+torch
+torchvision
+Pillow
+pydantic
+starlette
+requests
+numpy
+matplotlib
+scikit-learn
+scipy
+tqdm
+
+# Dockerfile
+# Dockerfile
+FROM python:3.8-slim-buster
+
+WORKDIR /app
+
+COPY requirements.txt .
+
+RUN pip install -r requirements.txt
+
+COPY . .
+
+CMD ["/bin/bash", "-c", "uvicorn main:app --host 0.0.0.0 --port 9000"] """
