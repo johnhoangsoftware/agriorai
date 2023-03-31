@@ -69,3 +69,6 @@ curl -X POST "http://localhost:9000/predict" -H "accept: application/json" -H "C
 ## Conclusion
 
 This Python script demonstrates how to create an API using FastAPI to serve a model trained on PyTorch. By following the instructions above, you can deploy the API in a Docker container and use it to make predictions on plant disease images.
+
+## Dataset
+```https://www.kaggle.com/datasets/smaranjitghose/corn-or-maize-leaf-disease-dataset```
