@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+torch
+torchvision
+Pillow
+pydantic
+starlette
+requests
+numpy
+matplotlib
+scikit-learn
+scipy
+tqdm

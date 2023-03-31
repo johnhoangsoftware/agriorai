@@ -3,7 +3,7 @@ from PIL import Image
 import torchvision.transforms as transforms
 import torch.nn as nn
 import torch.nn.functional as F   
-
+from fastapi import FastAPI, File, UploadFile
 
 classes = ['Apple___Apple_scab',
  'Apple___Black_rot',
@@ -164,3 +164,24 @@ model.eval()
 # Đường dẫn đến ảnh cần dự đoán
 image_path = './test/PotatoEarlyBlight4.JPG'
 print(predict_image(image_path, model))
+
+
+# build api with FastAPI
+app = FastAPI()
+
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
+
+@app.post("/predict")
+async def predict(file: UploadFile = File(...)):
+    image = Image.open(file.file)
+    transform = transforms.ToTensor()
+    tensor_image = transform(image)
+    xb = to_device(tensor_image.unsqueeze(0), device)
+    yb = model(xb)
+    _, preds  = torch.max(yb, dim=1)
+    return {"prediction": classes[preds[0].item()]}
+
+
+# re
