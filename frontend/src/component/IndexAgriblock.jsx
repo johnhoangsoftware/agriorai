@@ -1,10 +1,8 @@
-import React from 'react'
+import React from 'react';
 
 const IndexAgriblock = () => {
     return (
-
         <body class="home-sticky-pin sidebar-header scrollspy-example position-relative" data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" tabindex="0">
-
             <div class="d-none d-lg-block">
                 <div class="header-area left-header-style d-flex">
                     <div class="logo-area logo-custom-css">
@@ -143,7 +141,7 @@ const IndexAgriblock = () => {
                                     <div class="single-slide">
                                         <div class="inner">
                                             <div class="thumbnail">
-                                                <a href="product-details.html"><img src="assets/images/banner/banner-01.jpg" alt="NFT_portfolio" /></a>
+                                                <a href="product-details.html"><img src="./src/assets/images/banner/banner-01.jpg" alt="NFT_portfolio" /></a>
                                             </div>
                                             <div class="banner-read-thumb">
                                                 <h4><a href="product-details.html">Cubic Bazier</a></h4>
@@ -709,36 +707,9 @@ const IndexAgriblock = () => {
             </div>
             {/* <!-- End Top To Bottom Area  -->
 <!-- JS ============================================ --> */}
-            <script src="./src/assets/js/vendor/jquery.js"></script>
-            <script src="./src/assets/js/vendor/jquery.nice-select.min.js"></script>
-            <script src="./src/assets./src/assetsets/js/vendor/jquery-ui.js"></script>
-            <script src="./src/assets/js/vendor/modernizer.min.js"></script>
-            <script src="./src/assets/js/vendor/feather.min.js"></script>
-            <script src="./src/assets/js/vendor/slick.min.js"></script>
-            <script src="./src/assets./src/assetsets/js/vendor/bootstrap.min.js"></script>
-            <script src="./src/assets/js/vendor/sal.min.js"></script>
-            <script src="./src/assets/js/vendor/particles.js"></script>
-            <script src="./src/assets/js/vendor/jquery.style.swicher.js"></script>
-            <script src="./src/assets/js/vendor/js.cookie.js"></script>
-            <script src="./src/assets/js/vendor/count-down.js"></script>
-            <script src="./src/assets/js/vendor/isotop.js"></script>
-            <script src="./src/assets/js/vendor/imageloaded.js"></script>
-            <script src="./src/assets/js/vendor/backtoTop.js"></script>
-            <script src="./src/assets/js/vendor/odometer.js"></script>
-            <script src="./src/assets/js/vendor/jquery-appear.js"></script>
-            <script src="./src/assets/js/vendor/scrolltrigger.js"></script>
-            <script src="./src/assets/js/vendor/jquery.custom-file-input.js"></script>
-            <script src="./src/assets/js/vendor/savePopup.js"></script>
-            <script src="./src/assets/js/vendor/vanilla.tilt.js"></script>
-
-            {/* <!-- main JS --> */}
-            <script src="./src/assets/js/main.js"></script>
-            {/* <!-- Meta Mask  --> */}
-            <script src="./src/assets/js/vendor/web3.min.js"></script>
-            <script src="./src/assets/js/vendor/maralis.js"></script>
-            <script src="./src/assets/js/vendor/nft.js"></script>
 
         </body>
+        
     )
 }
 
