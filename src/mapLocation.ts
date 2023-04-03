@@ -15,10 +15,27 @@ function createMapLocation(latitude: number, longitude: number) {
   return map;
 }
 
-function addMarker(map: mapboxgl.Map, latitude: number, longitude: number, nameUser: string) {
-  const marker = new mapboxgl.Marker()
-    .setLngLat([longitude, latitude])
-    .setPopup(new mapboxgl.Popup().setHTML(`<h3>${nameUser}</h3>`))
-    .addTo(map);
-  return marker;
+function addMarker(map: mapboxgl.Map, latitude: number, longitude: number, nameUser: string,
+   typeIcon: string) {
+
+      /* Json linksICon */
+      const linksICon = {
+         'chicken': 'https://cdn.discordapp.com/attachments/1092377385590075453/1092385956201513000/chicken.png',
+         'cow': 'https://cdn.discordapp.com/attachments/1092377385590075453/1092385956201513000/cow.png',
+         'pig': 'https://cdn.discordapp.com/attachments/1092377385590075453/1092385956201513000/pig.png',
+      };
+
+      const icon = document.createElement('div');
+      icon.className = 'marker';
+      icon.style.backgroundImage = `url(${linksICon[typeIcon]})`;
+      icon.style.width = `35px`;
+      icon.style.height = `35px`;
+      icon.style.backgroundSize = '100%';
+      const mark = new mapboxgl.Marker(icon)
+            .setLngLat([longitude, latitude])
+            .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+            .setHTML('<h3>' + nameUser + '</h3>'))
+            .addTo(map);
+      return mark;
 }
+
