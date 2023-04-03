@@ -1,11 +1,10 @@
 import './App.css';
 import React from 'react';
-import CosmosBalanceForm from './components/CosmosBalanceForm';
-
+import Home from './pages/Home';
 function App() {
   return (
     <div className="App">
-      <CosmosBalanceForm></CosmosBalanceForm>
+    
     </div>
   );
 }
