@@ -154,8 +154,8 @@ app = FastAPI()
 def read_root():
     return "AGRIBLOCK"
 
-@app.post("/predict")
-async def predict(file: UploadFile = File(...)):
+@app.post("/apple")
+async def apple(file: UploadFile = File(...)):
     image = Image.open(file.file)
     # resize the image to 256x256 pixels
     image = image.resize((256, 256))
@@ -168,13 +168,183 @@ async def predict(file: UploadFile = File(...)):
         output = model(image)
         _, preds = torch.max(output, 1)
         class_name = classes[preds]
-        return {"class_name": class_name, "accuracy": float(torch.max(F.softmax(output, dim=1)))}
+        if class_name.split('___')[0] != 'Apple':
+            return {"class_name": None}
+        else:
+            return {"class_name": class_name, "accuracy": float(torch.max(F.softmax(output, dim=1)))}
     
+@app.post("/cherry")
+async def cherry(file: UploadFile = File(...)):
+    image = Image.open(file.file)
+    # resize the image to 256x256 pixels
+    image = image.resize((256, 256))
+    # convert image to tensor 1x3x256x256
+    image = transforms.ToTensor()(image)
+    # add batch dimension 1x1x3x256x256
+    image = image.unsqueeze(0)
+    # predict the class of the image and % accuracy
+    with torch.no_grad():
+        output = model(image)
+        _, preds = torch.max(output, 1)
+        class_name = classes[preds]
+        if class_name.split('___')[0] != 'Cherry_(including_sour)':
+            return {"class_name": None}
+        else:
+            return {"class_name": class_name, "accuracy": float(torch.max(F.softmax(output, dim=1)))}
 
+@app.post("/corn")
+
+async def corn(file: UploadFile = File(...)):
+    image = Image.open(file.file)
+    # resize the image to 256x256 pixels
+    image = image.resize((256, 256))
+    # convert image to tensor 1x3x256x256
+    image = transforms.ToTensor()(image)
+    # add batch dimension 1x1x3x256x256
+    image = image.unsqueeze(0)
+    # predict the class of the image and % accuracy
+    with torch.no_grad():
+        output = model(image)
+        _, preds = torch.max(output, 1)
+        class_name = classes[preds]
+        if class_name.split('___')[0] != 'Corn_(maize)':
+            return {"class_name": None}
+        else:
+            return {"class_name": class_name, "accuracy": float(torch.max(F.softmax(output, dim=1)))}
+
+@app.post("/grape")
+async def grape(file: UploadFile = File(...)):
+    image = Image.open(file.file)
+    # resize the image to 256x256 pixels
+    image = image.resize((256, 256))
+    # convert image to tensor 1x3x256x256
+    image = transforms.ToTensor()(image)
+    # add batch dimension 1x1x3x256x256
+    image = image.unsqueeze(0)
+    # predict the class of the image and % accuracy
+    with torch.no_grad():
+        output = model(image)
+        _, preds = torch.max(output, 1)
+        class_name = classes[preds]
+        if class_name.split('___')[0] != 'Grape':
+            return {"class_name": None}
+        else:
+            return {"class_name": class_name, "accuracy": float(torch.max(F.softmax(output, dim=1)))}
+        
+@app.post("/peach")
+async def peach(file: UploadFile = File(...)):
+    image = Image.open(file.file)
+    # resize the image to 256x256 pixels
+    image = image.resize((256, 256))
+    # convert image to tensor 1x3x256x256
+    image = transforms.ToTensor()(image)
+    # add batch dimension 1x1x3x256x256
+    image = image.unsqueeze(0)
+    # predict the class of the image and % accuracy
+    with torch.no_grad():
+        output = model(image)
+        _, preds = torch.max(output, 1)
+        class_name = classes[preds]
+        if class_name.split('___')[0] != 'Peach':
+            return {"class_name": None}
+        else:
+            return {"class_name": class_name, "accuracy": float(torch.max(F.softmax(output, dim=1)))}
+
+@app.post("/orange")
+async def orange(file: UploadFile = File(...)):
+    image = Image.open(file.file)
+    # resize the image to 256x256 pixels
+    image = image.resize((256, 256))
+    # convert image to tensor 1x3x256x256
+    image = transforms.ToTensor()(image)
+    # add batch dimension 1x1x3x256x256
+    image = image.unsqueeze(0)
+    # predict the class of the image and % accuracy
+    with torch.no_grad():
+        output = model(image)
+        _, preds = torch.max(output, 1)
+        class_name = classes[preds]
+        if class_name.split('___')[0] != 'Orange':
+            return {"class_name": None}
+        else:
+            return {"class_name": class_name, "accuracy": float(torch.max(F.softmax(output, dim=1)))}
 
    
+@app.post("/pepper")
+async def pepper(file: UploadFile = File(...)):
+    image = Image.open(file.file)
+    # resize the image to 256x256 pixels
+    image = image.resize((256, 256))
+    # convert image to tensor 1x3x256x256
+    image = transforms.ToTensor()(image)
+    # add batch dimension 1x1x3x256x256
+    image = image.unsqueeze(0)
+    # predict the class of the image and % accuracy
+    with torch.no_grad():
+        output = model(image)
+        _, preds = torch.max(output, 1)
+        class_name = classes[preds]
+        if class_name.split('___')[0] != 'Pepper,_bell':
+            return {"class_name": None}
+        else:
+            return {"class_name": class_name, "accuracy": float(torch.max(F.softmax(output, dim=1)))}
 
-   
+@app.post("/potato")
+async def potato(file: UploadFile = File(...)):
+    image = Image.open(file.file)
+    # resize the image to 256x256 pixels
+    image = image.resize((256, 256))
+    # convert image to tensor 1x3x256x256
+    image = transforms.ToTensor()(image)
+    # add batch dimension 1x1x3x256x256
+    image = image.unsqueeze(0)
+    # predict the class of the image and % accuracy
+    with torch.no_grad():
+        output = model(image)
+        _, preds = torch.max(output, 1)
+        class_name = classes[preds]
+        if class_name.split('___')[0] != 'Potato':
+            return {"class_name": None}
+        else:
+            return {"class_name": class_name, "accuracy": float(torch.max(F.softmax(output, dim=1)))}
+
+@app.post("/strawberry")
+async def strawberry(file: UploadFile = File(...)):
+    image = Image.open(file.file)
+    # resize the image to 256x256 pixels
+    image = image.resize((256, 256))
+    # convert image to tensor 1x3x256x256
+    image = transforms.ToTensor()(image)
+    # add batch dimension 1x1x3x256x256
+    image = image.unsqueeze(0)
+    # predict the class of the image and % accuracy
+    with torch.no_grad():
+        output = model(image)
+        _, preds = torch.max(output, 1)
+        class_name = classes[preds]
+        if class_name.split('___')[0] != 'Strawberry':
+            return {"class_name": None}
+        else:
+            return {"class_name": class_name, "accuracy": float(torch.max(F.softmax(output, dim=1)))}
+
+@app.post("/tomato")
+async def tomato(file: UploadFile = File(...)):
+    image = Image.open(file.file)
+    # resize the image to 256x256 pixels
+    image = image.resize((256, 256))
+    # convert image to tensor 1x3x256x256
+    image = transforms.ToTensor()(image)
+    # add batch dimension 1x1x3x256x256
+    image = image.unsqueeze(0)
+    # predict the class of the image and % accuracy
+    with torch.no_grad():
+        output = model(image)
+        _, preds = torch.max(output, 1)
+        class_name = classes[preds]
+        if class_name.split('___')[0] != 'Tomato':
+            return {"class_name": None}
+        else:
+            return {"class_name": class_name, "accuracy": float(torch.max(F.softmax(output, dim=1)))}
 
 
 """ # requirements.txt
