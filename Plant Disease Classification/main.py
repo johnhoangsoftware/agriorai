@@ -4,6 +4,7 @@ import torchvision.transforms as transforms
 import torch.nn as nn
 import torch.nn.functional as F   
 from fastapi import FastAPI, File, UploadFile
+import numpy as np
 
 classes = ['Apple___Apple_scab',
  'Apple___Black_rot',
@@ -60,24 +61,6 @@ def get_default_device():
     
 
 device = torch.device("cpu")
-
-
-def predict_image(img, model):
-    image = Image.open(img)
-
-    # Chuyển đổi ảnh sang tensor
-    transform = transforms.ToTensor()
-    tensor_image = transform(image)
-    """Converts image to array and return the predicted class
-        with highest probability"""
-    # Convert to a batch of 1
-    xb = to_device(tensor_image.unsqueeze(0), device)
-    # Get predictions from model
-    yb = model(xb)
-    # Pick index with highest probability
-    _, preds  = torch.max(yb, dim=1)
-    # Retrieve the class label
-    return classes[preds[0].item()]
 
 
 # for calculating the accuracy
@@ -174,12 +157,24 @@ def read_root():
 @app.post("/predict")
 async def predict(file: UploadFile = File(...)):
     image = Image.open(file.file)
-    transform = transforms.ToTensor()
-    tensor_image = transform(image)
-    xb = to_device(tensor_image.unsqueeze(0), device)
-    yb = model(xb)
-    _, preds  = torch.max(yb, dim=1)
-    return {"prediction": classes[preds[0].item()]}
+    # resize the image to 256x256 pixels
+    image = image.resize((256, 256))
+    # convert image to tensor 1x3x256x256
+    image = transforms.ToTensor()(image)
+    # add batch dimension 1x1x3x256x256
+    image = image.unsqueeze(0)
+    # predict the class of the image and % accuracy
+    with torch.no_grad():
+        output = model(image)
+        _, preds = torch.max(output, 1)
+        class_name = classes[preds]
+        return {"class_name": class_name, "accuracy": float(torch.max(F.softmax(output, dim=1)))}
+    
+
+
+   
+
+   
 
 
 """ # requirements.txt
