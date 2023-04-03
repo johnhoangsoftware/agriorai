@@ -3,9 +3,9 @@ dotenv.config();
 import mapboxgl from '../lib/mapboxgl.js';
 
 const mapboxglApiKey = process.env.MAPBOXGL_API_KEY;
-mapboxgl.accessToken = mapboxglApiKey;
 
 function createMapLocation(latitude: number, longitude: number) {
+   mapboxgl.accessToken = mapboxglApiKey;
   const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/navigation-day-v1',
@@ -39,3 +39,36 @@ function addMarker(map: mapboxgl.Map, latitude: number, longitude: number, nameU
       return mark;
 }
 
+function getAllDataMarkers() {
+   /* Tạo data fake json lat,long,nameUser,typeIcon */
+   const markers = [
+      {
+         latitude: 10.762622,
+         longitude: 106.660172,
+         nameUser: 'Nguyễn Văn A',
+         typeIcon: 'chicken',
+      },
+      {
+         latitude: 10.762622,
+         longitude: 106.660172,
+         nameUser: 'Nguyễn Văn B',
+         typeIcon: 'cow',
+      },
+      {
+         latitude: 10.762622,
+         longitude: 106.660172,
+         nameUser: 'Nguyễn Văn C',
+         typeIcon: 'pig',
+      },
+   ];
+   return markers;
+}
+
+function addAllMarkers(map: mapboxgl.Map) {
+   const markers = getAllDataMarkers();
+   markers.forEach((marker) => {
+      addMarker(map, marker.latitude, marker.longitude, marker.nameUser, marker.typeIcon);
+   });
+}
+
+export { createMapLocation, addMarker, addAllMarkers };
