@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createMapLocation = exports.addMarker = void 0;
+exports.addAllMarkers = exports.addMarker = exports.createMapLocation = void 0;
 var dotenv = require("dotenv");
 dotenv.config();
 var mapboxgl_js_1 = require("../lib/mapboxgl.js");
@@ -37,3 +37,34 @@ function addMarker(map, latitude, longitude, nameUser, typeIcon) {
     return mark;
 }
 exports.addMarker = addMarker;
+function getAllDataMarkers() {
+    /* Tạo data fake json lat,long,nameUser,typeIcon */
+    var markers = [
+        {
+            latitude: 10.762622,
+            longitude: 106.660172,
+            nameUser: 'Nguyễn Văn A',
+            typeIcon: 'chicken',
+        },
+        {
+            latitude: 10.762622,
+            longitude: 106.660172,
+            nameUser: 'Nguyễn Văn B',
+            typeIcon: 'cow',
+        },
+        {
+            latitude: 10.762622,
+            longitude: 106.660172,
+            nameUser: 'Nguyễn Văn C',
+            typeIcon: 'pig',
+        },
+    ];
+    return markers;
+}
+function addAllMarkers(map) {
+    var markers = getAllDataMarkers();
+    markers.forEach(function (marker) {
+        addMarker(map, marker.latitude, marker.longitude, marker.nameUser, marker.typeIcon);
+    });
+}
+exports.addAllMarkers = addAllMarkers;
