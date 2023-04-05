@@ -4,7 +4,6 @@ import torchvision.transforms as transforms
 import torch.nn as nn
 import torch.nn.functional as F   
 from fastapi import FastAPI, File, UploadFile
-from mangum import Mangum
 
 
 
@@ -152,7 +151,6 @@ model.eval()
 
 # build api with FastAPI
 app = FastAPI(docs_url='/')
-handler = Mangum(app)
 
 @app.get("/info")
 def read_root():
