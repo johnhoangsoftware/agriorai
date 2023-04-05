@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 import IndexAgriblock from './component/IndexAgriblock';
 import { useState } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet';
 import ProductDetail from './component/ProductDetail';
 function App() {
@@ -29,7 +30,6 @@ function App() {
         <script src="./src/assets/js/vendor/jquery.custom-file-input.js"></script>
         <script src="./src/assets/js/vendor/savePopup.js"></script>
         <script src="./src/assets/js/vendor/vanilla.tilt.js"></script>
-
         <script src="./src/assets/js/main.js"></script>
         <script src="./src/assets/js/vendor/web3.min.js"></script>
         <script src="./src/assets/js/vendor/maralis.js"></script>
@@ -39,6 +39,7 @@ function App() {
         <Routes>
           <Route path="/home" >
             <Route index element={<IndexAgriblock />} />
+            <Route path="thong" element={<ProductDetail/>} />
           </Route>
         </Routes>
       </div>
