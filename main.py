@@ -171,10 +171,8 @@ async def predict_disease_apple_with_image_of_apple_leaf(file: UploadFile = File
         output = model(image)
         _, preds = torch.max(output, 1)
         class_name = classes[preds]
-        if class_name.split('___')[0] != 'Apple':
-            return {"class_name": None}
-        else:
-            return {"class_name": class_name, "accuracy": float(torch.max(F.softmax(output, dim=1)))}
+        
+        return {"class_name": class_name, "accuracy": float(torch.max(F.softmax(output, dim=1)))}
     
 @app.post("/cherry/v1",tags=["Cherry"],description="Predict Disease Cherry With Image Of Cherry Leaf (Powdery Mildew, Healthy)")
 async def predict_disease_cherry_with_image_of_cherry_leaf(file: UploadFile = File(...)):
