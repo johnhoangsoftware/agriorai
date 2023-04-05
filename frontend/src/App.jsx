@@ -2,11 +2,9 @@ import { Route, Routes } from 'react-router-dom'
 import IndexAgriblock from './component/IndexAgriblock';
 import { useState } from 'react';
 import { Helmet } from 'react-helmet';
-// import MarketPlace from './component/MarketPlace';
+import ProductDetail from './component/ProductDetail';
 function App() {
   const [count, setCount] = useState(0)
-
-
   return (
     <>
       <Helmet>
@@ -32,9 +30,7 @@ function App() {
         <script src="./src/assets/js/vendor/savePopup.js"></script>
         <script src="./src/assets/js/vendor/vanilla.tilt.js"></script>
 
-        {/* <!-- main JS --> */}
         <script src="./src/assets/js/main.js"></script>
-        {/* <!-- Meta Mask  --> */}
         <script src="./src/assets/js/vendor/web3.min.js"></script>
         <script src="./src/assets/js/vendor/maralis.js"></script>
         <script src="./src/assets/js/vendor/nft.js"></script>
@@ -43,11 +39,9 @@ function App() {
         <Routes>
           <Route path="/home" >
             <Route index element={<IndexAgriblock />} />
-            {/* <Route path='/marketpalce'  element={<MarketPlace/>}/> */}
           </Route>
         </Routes>
       </div>
-
     </>
   )
 }
