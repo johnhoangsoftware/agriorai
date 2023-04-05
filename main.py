@@ -4,7 +4,10 @@ import torchvision.transforms as transforms
 import torch.nn as nn
 import torch.nn.functional as F   
 from fastapi import FastAPI, File, UploadFile
-import numpy as np
+from mangum import Mangum
+
+
+
 
 classes = ['Apple___Apple_scab',
  'Apple___Black_rot',
@@ -148,11 +151,12 @@ model.eval()
 
 
 # build api with FastAPI
-app = FastAPI()
+app = FastAPI(docs_url='/')
+handler = Mangum(app)
 
-@app.get("/")
+@app.get("/info")
 def read_root():
-    return "AGRIBLOCK"
+    return "Powered By AGRIBLOCK"
 
 @app.post("/apple")
 async def apple(file: UploadFile = File(...)):
