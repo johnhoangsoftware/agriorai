@@ -167,14 +167,23 @@ async def predict_disease_apple_with_image_of_apple_leaf(file: UploadFile = File
     # add batch dimension 1x1x3x256x256
     image = image.unsqueeze(0)
     # predict the class of the image and % accuracy
+   
     with torch.no_grad():
-        output = model(image)
-        _, preds = torch.max(output, 1)
-        class_name = classes[preds]
-        if class_name.split('___')[0] != 'Apple':
-            return {"class_name": None}
-        else:
-            return {"class_name": class_name, "accuracy": float(torch.max(F.softmax(output, dim=1)))}
+         output = model(image)
+         probs = torch.softmax(output, dim=1)
+
+    result = []
+    for i in range(len(classes)):
+         result.append({"class": classes[i], "probability": probs[0][i].item()})
+
+    # Sắp xếp theo thứ tự giảm dần
+    result = sorted(result, key=lambda x: x['probability'], reverse=True)
+    apple_result = []
+    for i in range(len(classes)):
+        # chỉ lấy kết quả của class apple
+         if result[i]['class'].split('___')[0] == 'Apple':
+               apple_result.append(result[i])
+    return apple_result
     
 @app.post("/cherry/v1",tags=["Cherry"],description="Predict Disease Cherry With Image Of Cherry Leaf (Powdery Mildew, Healthy)")
 async def predict_disease_cherry_with_image_of_cherry_leaf(file: UploadFile = File(...)):
@@ -188,15 +197,21 @@ async def predict_disease_cherry_with_image_of_cherry_leaf(file: UploadFile = Fi
     # predict the class of the image and % accuracy
     with torch.no_grad():
         output = model(image)
-        _, preds = torch.max(output, 1)
-        class_name = classes[preds]
-        if class_name.split('___')[0] != 'Cherry_(including_sour)':
-            return {"class_name": None}
-        else:
-            return {"class_name": class_name, "accuracy": float(torch.max(F.softmax(output, dim=1)))}
+        probs = torch.softmax(output, dim=1)
 
-@app.post("/corn/v1",tags=["Corn"],description="Predict Disease Corn With Image Of Corn Leaf (Common Rust, Northern Leaf Blight, Healthy, Cercospora Leaf Spot Gray Leaf Spot)")
+    result = []
+    for i in range(len(classes)):
+         result.append({"class": classes[i], "probability": probs[0][i].item()})
+    # Sắp xếp theo thứ tự giảm dần
+    result = sorted(result, key=lambda x: x['probability'], reverse=True)
+    cherry_result = []
+    for i in range(len(classes)):
+        # chỉ lấy kết quả của class cherry
+         if result[i]['class'].split('___')[0] == 'Cherry_(including_sour)':
+               cherry_result.append(result[i])
+    return cherry_result
 
+@app.post("/corn/v1",tags=["Corn"],description="Predict Disease Corn With Image Of Corn Leaf (Common Rust, Northern Leaf Blight, Healthy)")
 async def predict_disease_corn_with_image_of_corn_leaf(file: UploadFile = File(...)):
     image = Image.open(file.file)
     # resize the image to 256x256 pixels
@@ -208,32 +223,47 @@ async def predict_disease_corn_with_image_of_corn_leaf(file: UploadFile = File(.
     # predict the class of the image and % accuracy
     with torch.no_grad():
         output = model(image)
-        _, preds = torch.max(output, 1)
-        class_name = classes[preds]
-        if class_name.split('___')[0] != 'Corn_(maize)':
-            return {"class_name": None}
-        else:
-            return {"class_name": class_name, "accuracy": float(torch.max(F.softmax(output, dim=1)))}
+        probs = torch.softmax(output, dim=1)
 
-@app.post("/grape/v1",tags=["Grape"],description="Predict Disease Grape With Image Of Grape Leaf (Black Rot, Esca (Black Measles), Leaf Blight (Isariopsis Leaf Spot), Healthy)")
+    result = []
+    for i in range(len(classes)):
+            result.append({"class": classes[i], "probability": probs[0][i].item()})
+    # Sắp xếp theo thứ tự giảm dần
+    result = sorted(result, key=lambda x: x['probability'], reverse=True)
+    corn_result = []
+    for i in range(len(classes)):
+        # chỉ lấy kết quả của class corn
+         if result[i]['class'].split('___')[0] == 'Corn_(maize))':
+               corn_result.append(result[i])
+    return corn_result
+
+app.post("/grape/v1",tags=["Grape"],description="Predict Disease Grape With Image Of Grape Leaf (Black Rot, Esca (Black Measles), Leaf Blight (Isariopsis Leaf Spot), Healthy)")
 async def predict_disease_grape_with_image_of_grape_leaf(file: UploadFile = File(...)):
-    image = Image.open(file.file)
-    # resize the image to 256x256 pixels
-    image = image.resize((256, 256))
-    # convert image to tensor 1x3x256x256
-    image = transforms.ToTensor()(image)
-    # add batch dimension 1x1x3x256x256
-    image = image.unsqueeze(0)
-    # predict the class of the image and % accuracy
-    with torch.no_grad():
-        output = model(image)
-        _, preds = torch.max(output, 1)
-        class_name = classes[preds]
-        if class_name.split('___')[0] != 'Grape':
-            return {"class_name": None}
-        else:
-            return {"class_name": class_name, "accuracy": float(torch.max(F.softmax(output, dim=1)))}
-        
+        image = Image.open(file.file)
+        # resize the image to 256x256 pixels
+        image = image.resize((256, 256))
+        # convert image to tensor 1x3x256x256
+        image = transforms.ToTensor()(image)
+        # add batch dimension 1x1x3x256x256
+        image = image.unsqueeze(0)
+        # predict the class of the image and % accuracy
+        with torch.no_grad():
+            output = model(image)
+            probs = torch.softmax(output, dim=1)
+
+        result = []
+        for i in range(len(classes)):
+            result.append({"class": classes[i], "probability": probs[0][i].item()})
+        # Sắp xếp theo thứ tự giảm dần
+        result = sorted(result, key=lambda x: x['probability'], reverse=True)
+        grape_result = []
+        for i in range(len(classes)):
+            # chỉ lấy kết quả của class grape
+            if result[i]['class'].split('___')[0] == 'Grape':
+                grape_result.append(result[i])
+        return grape_result
+
+
 @app.post("/peach/v1",tags=["Peach"],description="Predict Disease Peach With Image Of Peach Leaf (Bacterial Spot, Healthy)")
 async def predict_disease_peach_with_image_of_peach_leaf(file: UploadFile = File(...)):
     image = Image.open(file.file)
@@ -246,34 +276,21 @@ async def predict_disease_peach_with_image_of_peach_leaf(file: UploadFile = File
     # predict the class of the image and % accuracy
     with torch.no_grad():
         output = model(image)
-        _, preds = torch.max(output, 1)
-        class_name = classes[preds]
-        if class_name.split('___')[0] != 'Peach':
-            return {"class_name": None}
-        else:
-            return {"class_name": class_name, "accuracy": float(torch.max(F.softmax(output, dim=1)))}
+        probs = torch.softmax(output, dim=1)
 
-@app.post("/orange/v1",tags=["Orange"],description="Predict Disease Orange With Image Of Orange Leaf (Haunglongbing (Citrus Greening), Healthy)")
-async def predict_disease_orange_with_image_of_orange_leaf(file: UploadFile = File(...)):
-    image = Image.open(file.file)
-    # resize the image to 256x256 pixels
-    image = image.resize((256, 256))
-    # convert image to tensor 1x3x256x256
-    image = transforms.ToTensor()(image)
-    # add batch dimension 1x1x3x256x256
-    image = image.unsqueeze(0)
-    # predict the class of the image and % accuracy
-    with torch.no_grad():
-        output = model(image)
-        _, preds = torch.max(output, 1)
-        class_name = classes[preds]
-        if class_name.split('___')[0] != 'Orange':
-            return {"class_name": None}
-        else:
-            return {"class_name": class_name, "accuracy": float(torch.max(F.softmax(output, dim=1)))}
+    result = []
+    for i in range(len(classes)):
+            result.append({"class": classes[i], "probability": probs[0][i].item()})
+    # Sắp xếp theo thứ tự giảm dần
+    result = sorted(result, key=lambda x: x['probability'], reverse=True)
+    peach_result = []
+    for i in range(len(classes)):
+        # chỉ lấy kết quả của class peach
+         if result[i]['class'].split('___')[0] == 'Peach':
+               peach_result.append(result[i])
+    return peach_result
 
-   
-@app.post("/pepper/v1",tags=["Pepper"],description="Predict Disease Pepper With Image Of Pepper Leaf (Bacterial Spot, Healthy)" )
+@app.post("/pepper/v1",tags=["Pepper"],description="Predict Disease Pepper With Image Of Pepper Leaf (Bacterial Spot, Healthy)")
 async def predict_disease_pepper_with_image_of_pepper_leaf(file: UploadFile = File(...)):
     image = Image.open(file.file)
     # resize the image to 256x256 pixels
@@ -285,14 +302,21 @@ async def predict_disease_pepper_with_image_of_pepper_leaf(file: UploadFile = Fi
     # predict the class of the image and % accuracy
     with torch.no_grad():
         output = model(image)
-        _, preds = torch.max(output, 1)
-        class_name = classes[preds]
-        if class_name.split('___')[0] != 'Pepper,_bell':
-            return {"class_name": None}
-        else:
-            return {"class_name": class_name, "accuracy": float(torch.max(F.softmax(output, dim=1)))}
+        probs = torch.softmax(output, dim=1)
 
-@app.post("/potato/v1",tags=["Potato"],description="Predict Disease Potato With Image Of Potato Leaf (Early Blight, Late Blight, Healthy)"  )
+    result = []
+    for i in range(len(classes)):
+            result.append({"class": classes[i], "probability": probs[0][i].item()})
+    # Sắp xếp theo thứ tự giảm dần
+    result = sorted(result, key=lambda x: x['probability'], reverse=True)
+    pepper_result = []
+    for i in range(len(classes)):
+        # chỉ lấy kết quả của class pepper
+         if result[i]['class'].split('___')[0] == 'Pepper,_bell':
+               pepper_result.append(result[i])
+    return pepper_result
+
+@app.post("/potato/v1",tags=["Potato"],description="Predict Disease Potato With Image Of Potato Leaf (Early Blight, Late Blight, Healthy)")
 async def predict_disease_potato_with_image_of_potato_leaf(file: UploadFile = File(...)):
     image = Image.open(file.file)
     # resize the image to 256x256 pixels
@@ -304,15 +328,22 @@ async def predict_disease_potato_with_image_of_potato_leaf(file: UploadFile = Fi
     # predict the class of the image and % accuracy
     with torch.no_grad():
         output = model(image)
-        _, preds = torch.max(output, 1)
-        class_name = classes[preds]
-        if class_name.split('___')[0] != 'Potato':
-            return {"class_name": None}
-        else:
-            return {"class_name": class_name, "accuracy": float(torch.max(F.softmax(output, dim=1)))}
+        probs = torch.softmax(output, dim=1)
 
-@app.post("/strawberry/v1",tags=["Strawberry"],description="Predict Disease Strawberry With Image Of Strawberry Leaf (Leaf Scorch, Healthy)" )
-async def predict_disease_strawberry_with_image_of_strawberry_leaf(file: UploadFile = File(...)):
+    result = []
+    for i in range(len(classes)):
+            result.append({"class": classes[i], "probability": probs[0][i].item()})
+    # Sắp xếp theo thứ tự giảm dần
+    result = sorted(result, key=lambda x: x['probability'], reverse=True)
+    potato_result = []
+    for i in range(len(classes)):
+        # chỉ lấy kết quả của class potato
+         if result[i]['class'].split('___')[0] == 'Potato':
+               potato_result.append(result[i])
+    return potato_result
+
+@app.post("/soybean/v1",tags=["Soybean"],description="Predict Disease Soybean With Image Of Soybean Leaf (Healthy, Soybean Rust)")
+async def predict_disease_soybean_with_image_of_soybean_leaf(file: UploadFile = File(...)):
     image = Image.open(file.file)
     # resize the image to 256x256 pixels
     image = image.resize((256, 256))
@@ -323,33 +354,21 @@ async def predict_disease_strawberry_with_image_of_strawberry_leaf(file: UploadF
     # predict the class of the image and % accuracy
     with torch.no_grad():
         output = model(image)
-        _, preds = torch.max(output, 1)
-        class_name = classes[preds]
-        if class_name.split('___')[0] != 'Strawberry':
-            return {"class_name": None}
-        else:
-            return {"class_name": class_name, "accuracy": float(torch.max(F.softmax(output, dim=1)))}
+        probs = torch.softmax(output, dim=1)
 
-@app.post("/tomato/v1",tags=["Tomato"],description="Predict Disease Tomato With Image Of Tomato Leaf (Bacterial Spot, Early Blight, Late Blight, Leaf Mold, Septoria Leaf Spot, Spider Mites, Target Spot, Yellow Leaf Curl Virus, Mosaic Virus, Healthy)")
-async def predict_disease_tomato_with_image_of_tomato_leaf(file: UploadFile = File(...)):
-    image = Image.open(file.file)
-    # resize the image to 256x256 pixels
-    image = image.resize((256, 256))
-    # convert image to tensor 1x3x256x256
-    image = transforms.ToTensor()(image)
-    # add batch dimension 1x1x3x256x256
-    image = image.unsqueeze(0)
-    # predict the class of the image and % accuracy
-    with torch.no_grad():
-        output = model(image)
-        _, preds = torch.max(output, 1)
-        class_name = classes[preds]
-        if class_name.split('___')[0] != 'Tomato':
-            return {"class_name": None}
-        else:
-            return {"class_name": class_name, "accuracy": float(torch.max(F.softmax(output, dim=1)))}
+    result = []
+    for i in range(len(classes)):
+            result.append({"class": classes[i], "probability": probs[0][i].item()})
+    # Sắp xếp theo thứ tự giảm dần
+    result = sorted(result, key=lambda x: x['probability'], reverse=True)
+    soybean_result = []
+    for i in range(len(classes)):
+        # chỉ lấy kết quả của class soybean
+         if result[i]['class'].split('___')[0] == 'Soybean':
+               soybean_result.append(result[i])
+    return soybean_result
 
-@app.post("squash/v1",tags=["Squash"],description="Predict Disease Squash With Image Of Squash Leaf (Powdery Mildew, Healthy)")
+@app.post("/squash/v1",tags=["Squash"],description="Predict Disease Squash With Image Of Squash Leaf (Powdery Mildew, Healthy)")
 async def predict_disease_squash_with_image_of_squash_leaf(file: UploadFile = File(...)):
     image = Image.open(file.file)
     # resize the image to 256x256 pixels
@@ -361,40 +380,150 @@ async def predict_disease_squash_with_image_of_squash_leaf(file: UploadFile = Fi
     # predict the class of the image and % accuracy
     with torch.no_grad():
         output = model(image)
-        _, preds = torch.max(output, 1)
-        class_name = classes[preds]
-        if class_name.split('___')[0] != 'Squash':
-            return {"class_name": None}
-        else:
-            return {"class_name": class_name, "accuracy": float(torch.max(F.softmax(output, dim=1)))}
-        
+        probs = torch.softmax(output, dim=1)
+
+    result = []
+    for i in range(len(classes)):
+            result.append({"class": classes[i], "probability": probs[0][i].item()})
+    # Sắp xếp theo thứ tự giảm dần
+    result = sorted(result, key=lambda x: x['probability'], reverse=True)
+    squash_result = []
+    for i in range(len(classes)):
+        # chỉ lấy kết quả của class squash
+         if result[i]['class'].split('___')[0] == 'Squash':
+               squash_result.append(result[i])
+    return squash_result
+
+@app.post("/strawberry/v1",tags=["Strawberry"],description="Predict Disease Strawberry With Image Of Strawberry Leaf (Leaf Scorch, Healthy)")
+async def predict_disease_strawberry_with_image_of_strawberry_leaf(file: UploadFile = File(...)):
+    image = Image.open(file.file)
+    # resize the image to 256x256 pixels
+    image = image.resize((256, 256))
+    # convert image to tensor 1x3x256x256
+    image = transforms.ToTensor()(image)
+    # add batch dimension 1x1x3x256x256
+    image = image.unsqueeze(0)
+    # predict the class of the image and % accuracy
+    with torch.no_grad():
+        output = model(image)
+        probs = torch.softmax(output, dim=1)
+
+    result = []
+    for i in range(len(classes)):
+            result.append({"class": classes[i], "probability": probs[0][i].item()})
+    # Sắp xếp theo thứ tự giảm dần
+    result = sorted(result, key=lambda x: x['probability'], reverse=True)
+    strawberry_result = []
+    for i in range(len(classes)):
+        # chỉ lấy kết quả của class strawberry
+         if result[i]['class'].split('___')[0] == 'Strawberry':
+               strawberry_result.append(result[i])
+    return strawberry_result
+
+@app.post("/tomato/v1",tags=["Tomato"],description="Predict Disease Tomato With Image Of Tomato Leaf (Bacterial Spot, Early Blight, Late Blight, Leaf Mold, Septoria Leaf Spot, Spider Mites Two Spotted Spider Mite, Target Spot, Tomato Yellow Leaf Curl Virus, Tomato Mosaic Virus, Healthy)")
+async def predict_disease_tomato_with_image_of_tomato_leaf(file: UploadFile = File(...)):
+    image = Image.open(file.file)
+    # resize the image to 256x256 pixels
+    image = image.resize((256, 256))
+    # convert image to tensor 1x3x256x256
+    image = transforms.ToTensor()(image)
+    # add batch dimension 1x1x3x256x256
+    image = image.unsqueeze(0)
+    # predict the class of the image and % accuracy
+    with torch.no_grad():
+        output = model(image)
+        probs = torch.softmax(output, dim=1)
+
+    result = []
+    for i in range(len(classes)):
+            result.append({"class": classes[i], "probability": probs[0][i].item()})
+    # Sắp xếp theo thứ tự giảm dần
+    result = sorted(result, key=lambda x: x['probability'], reverse=True)
+    tomato_result = []
+    for i in range(len(classes)):
+        # chỉ lấy kết quả của class tomato
+         if result[i]['class'].split('___')[0] == 'Tomato':
+               tomato_result.append(result[i])
+    return tomato_result
+
+@app.post("/blueberry/v1",tags=["Blueberry"],description="Predict Disease Blueberry With Image Of Blueberry Leaf (Healthy")
+async def predict_disease_blueberry_with_image_of_blueberry_leaf(file: UploadFile = File(...)):
+    image = Image.open(file.file)
+    # resize the image to 256x256 pixels
+    image = image.resize((256, 256))
+    # convert image to tensor 1x3x256x256
+    image = transforms.ToTensor()(image)
+    # add batch dimension 1x1x3x256x256
+    image = image.unsqueeze(0)
+    # predict the class of the image and % accuracy
+    with torch.no_grad():
+        output = model(image)
+        probs = torch.softmax(output, dim=1)
+
+    result = []
+    for i in range(len(classes)):
+            result.append({"class": classes[i], "probability": probs[0][i].item()})
+    # Sắp xếp theo thứ tự giảm dần
+    result = sorted(result, key=lambda x: x['probability'], reverse=True)
+    blueberry_result = []
+    for i in range(len(classes)):
+        # chỉ lấy kết quả của class blueberry
+         if result[i]['class'].split('___')[0] == 'Blueberry':
+               blueberry_result.append(result[i])
+    return blueberry_result
+
+@app.post("/orange/v1",tags=["Orange"],description="Predict Disease Orange With Image Of Orange Leaf (Haunglongbing, Healthy)")
+async def predict_disease_orange_with_image_of_orange_leaf(file: UploadFile = File(...)):
+    image = Image.open(file.file)
+    # resize the image to 256x256 pixels
+    image = image.resize((256, 256))
+    # convert image to tensor 1x3x256x256
+    image = transforms.ToTensor()(image)
+    # add batch dimension 1x1x3x256x256
+    image = image.unsqueeze(0)
+    # predict the class of the image and % accuracy
+    with torch.no_grad():
+        output = model(image)
+        probs = torch.softmax(output, dim=1)
+
+    result = []
+    for i in range(len(classes)):
+            result.append({"class": classes[i], "probability": probs[0][i].item()})
+    # Sắp xếp theo thứ tự giảm dần
+    result = sorted(result, key=lambda x: x['probability'], reverse=True)
+    orange_result = []
+    for i in range(len(classes)):
+        # chỉ lấy kết quả của class orange
+         if result[i]['class'].split('___')[0] == 'Orange':
+               orange_result.append(result[i])
+    return orange_result
+
+@app.post("/raspberry/v1",tags=["Raspberry"],description="Predict Disease Raspberry With Image Of Raspberry Leaf (Healthy)")
+async def predict_disease_raspberry_with_image_of_raspberry_leaf(file: UploadFile = File(...)):
+    image = Image.open(file.file)
+    # resize the image to 256x256 pixels
+    image = image.resize((256, 256))
+    # convert image to tensor 1x3x256x256
+    image = transforms.ToTensor()(image)
+    # add batch dimension 1x1x3x256x256
+    image = image.unsqueeze(0)
+    # predict the class of the image and % accuracy
+    with torch.no_grad():
+        output = model(image)
+        probs = torch.softmax(output, dim=1)
+
+    result = []
+    for i in range(len(classes)):
+            result.append({"class": classes[i], "probability": probs[0][i].item()})
+    # Sắp xếp theo thứ tự giảm dần
+    result = sorted(result, key=lambda x: x['probability'], reverse=True)
+    raspberry_result = []
+    for i in range(len(classes)):
+        # chỉ lấy kết quả của class raspberry
+         if result[i]['class'].split('___')[0] == 'Raspberry':
+               raspberry_result.append(result[i])
+    return raspberry_result
 
 
-""" # requirements.txt
-fastapi
-uvicorn
-torch
-torchvision
-Pillow
-pydantic
-starlette
-requests
-numpy
-matplotlib
-scikit-learn
-scipy
-tqdm
 
-# Dockerfile
-# Dockerfile
-FROM python:3.8-slim-buster
 
-WORKDIR /app
-
-COPY requirements.txt .
-
-RUN pip install -r requirements.txt
-
-COPY . .
-
-CMD ["/bin/bash", "-c", "uvicorn main:app --host 0.0.0.0 --port 9000"] """
