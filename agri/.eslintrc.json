@@ -1,0 +1,14 @@
+// { "plugins": ["@next/next"] ,
+//   "extends": "next/core-web-vitals"
+// }
+{
+  "plugins": [
+      "react"
+  ],
+  "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended"
+  ],
+  "parser": "@typescript-eslint/parser"
+}
+
