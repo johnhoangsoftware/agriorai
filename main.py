@@ -150,14 +150,15 @@ model.eval()
 
 
 # build api with FastAPI
-app = FastAPI(docs_url='/')
+app = FastAPI(docs_url='/',
+              title='API Plant Disease Detection Powered By AGRIBLOCK',)
 
-@app.get("/info")
-def read_root():
+@app.get("/info",tags=["Infomation About API AI Plant Disease Detection Powered By AGRIBLOCK"])
+def get_info_about_api():
     return "Powered By AGRIBLOCK"
 
-@app.post("/apple")
-async def apple(file: UploadFile = File(...)):
+@app.post("/apple/v1",tags=["Apple"],description="Predict Disease Apple With Image Of Apple Leaf (Healthy, Black Rot, Cedar Apple Rust, Powdery Mildew)")
+async def predict_disease_apple_with_image_of_apple_leaf(file: UploadFile = File(...)):
     image = Image.open(file.file)
     # resize the image to 256x256 pixels
     image = image.resize((256, 256))
@@ -175,8 +176,8 @@ async def apple(file: UploadFile = File(...)):
         else:
             return {"class_name": class_name, "accuracy": float(torch.max(F.softmax(output, dim=1)))}
     
-@app.post("/cherry")
-async def cherry(file: UploadFile = File(...)):
+@app.post("/cherry/v1",tags=["Cherry"],description="Predict Disease Cherry With Image Of Cherry Leaf (Powdery Mildew, Healthy)")
+async def predict_disease_cherry_with_image_of_cherry_leaf(file: UploadFile = File(...)):
     image = Image.open(file.file)
     # resize the image to 256x256 pixels
     image = image.resize((256, 256))
@@ -194,9 +195,9 @@ async def cherry(file: UploadFile = File(...)):
         else:
             return {"class_name": class_name, "accuracy": float(torch.max(F.softmax(output, dim=1)))}
 
-@app.post("/corn")
+@app.post("/corn/v1",tags=["Corn"],description="Predict Disease Corn With Image Of Corn Leaf (Common Rust, Northern Leaf Blight, Healthy, Cercospora Leaf Spot Gray Leaf Spot)")
 
-async def corn(file: UploadFile = File(...)):
+async def predict_disease_corn_with_image_of_corn_leaf(file: UploadFile = File(...)):
     image = Image.open(file.file)
     # resize the image to 256x256 pixels
     image = image.resize((256, 256))
@@ -214,8 +215,8 @@ async def corn(file: UploadFile = File(...)):
         else:
             return {"class_name": class_name, "accuracy": float(torch.max(F.softmax(output, dim=1)))}
 
-@app.post("/grape")
-async def grape(file: UploadFile = File(...)):
+@app.post("/grape/v1",tags=["Grape"],description="Predict Disease Grape With Image Of Grape Leaf (Black Rot, Esca (Black Measles), Leaf Blight (Isariopsis Leaf Spot), Healthy)")
+async def predict_disease_grape_with_image_of_grape_leaf(file: UploadFile = File(...)):
     image = Image.open(file.file)
     # resize the image to 256x256 pixels
     image = image.resize((256, 256))
@@ -233,8 +234,8 @@ async def grape(file: UploadFile = File(...)):
         else:
             return {"class_name": class_name, "accuracy": float(torch.max(F.softmax(output, dim=1)))}
         
-@app.post("/peach")
-async def peach(file: UploadFile = File(...)):
+@app.post("/peach/v1",tags=["Peach"],description="Predict Disease Peach With Image Of Peach Leaf (Bacterial Spot, Healthy)")
+async def predict_disease_peach_with_image_of_peach_leaf(file: UploadFile = File(...)):
     image = Image.open(file.file)
     # resize the image to 256x256 pixels
     image = image.resize((256, 256))
@@ -252,8 +253,8 @@ async def peach(file: UploadFile = File(...)):
         else:
             return {"class_name": class_name, "accuracy": float(torch.max(F.softmax(output, dim=1)))}
 
-@app.post("/orange")
-async def orange(file: UploadFile = File(...)):
+@app.post("/orange/v1",tags=["Orange"],description="Predict Disease Orange With Image Of Orange Leaf (Haunglongbing (Citrus Greening), Healthy)")
+async def predict_disease_orange_with_image_of_orange_leaf(file: UploadFile = File(...)):
     image = Image.open(file.file)
     # resize the image to 256x256 pixels
     image = image.resize((256, 256))
@@ -272,8 +273,8 @@ async def orange(file: UploadFile = File(...)):
             return {"class_name": class_name, "accuracy": float(torch.max(F.softmax(output, dim=1)))}
 
    
-@app.post("/pepper")
-async def pepper(file: UploadFile = File(...)):
+@app.post("/pepper/v1",tags=["Pepper"],description="Predict Disease Pepper With Image Of Pepper Leaf (Bacterial Spot, Healthy)" )
+async def predict_disease_pepper_with_image_of_pepper_leaf(file: UploadFile = File(...)):
     image = Image.open(file.file)
     # resize the image to 256x256 pixels
     image = image.resize((256, 256))
@@ -291,8 +292,8 @@ async def pepper(file: UploadFile = File(...)):
         else:
             return {"class_name": class_name, "accuracy": float(torch.max(F.softmax(output, dim=1)))}
 
-@app.post("/potato")
-async def potato(file: UploadFile = File(...)):
+@app.post("/potato/v1",tags=["Potato"],description="Predict Disease Potato With Image Of Potato Leaf (Early Blight, Late Blight, Healthy)"  )
+async def predict_disease_potato_with_image_of_potato_leaf(file: UploadFile = File(...)):
     image = Image.open(file.file)
     # resize the image to 256x256 pixels
     image = image.resize((256, 256))
@@ -310,8 +311,8 @@ async def potato(file: UploadFile = File(...)):
         else:
             return {"class_name": class_name, "accuracy": float(torch.max(F.softmax(output, dim=1)))}
 
-@app.post("/strawberry")
-async def strawberry(file: UploadFile = File(...)):
+@app.post("/strawberry/v1",tags=["Strawberry"],description="Predict Disease Strawberry With Image Of Strawberry Leaf (Leaf Scorch, Healthy)" )
+async def predict_disease_strawberry_with_image_of_strawberry_leaf(file: UploadFile = File(...)):
     image = Image.open(file.file)
     # resize the image to 256x256 pixels
     image = image.resize((256, 256))
@@ -329,8 +330,8 @@ async def strawberry(file: UploadFile = File(...)):
         else:
             return {"class_name": class_name, "accuracy": float(torch.max(F.softmax(output, dim=1)))}
 
-@app.post("/tomato")
-async def tomato(file: UploadFile = File(...)):
+@app.post("/tomato/v1",tags=["Tomato"],description="Predict Disease Tomato With Image Of Tomato Leaf (Bacterial Spot, Early Blight, Late Blight, Leaf Mold, Septoria Leaf Spot, Spider Mites, Target Spot, Yellow Leaf Curl Virus, Mosaic Virus, Healthy)")
+async def predict_disease_tomato_with_image_of_tomato_leaf(file: UploadFile = File(...)):
     image = Image.open(file.file)
     # resize the image to 256x256 pixels
     image = image.resize((256, 256))
@@ -347,6 +348,27 @@ async def tomato(file: UploadFile = File(...)):
             return {"class_name": None}
         else:
             return {"class_name": class_name, "accuracy": float(torch.max(F.softmax(output, dim=1)))}
+
+@app.post("squash/v1",tags=["Squash"],description="Predict Disease Squash With Image Of Squash Leaf (Powdery Mildew, Healthy)")
+async def predict_disease_squash_with_image_of_squash_leaf(file: UploadFile = File(...)):
+    image = Image.open(file.file)
+    # resize the image to 256x256 pixels
+    image = image.resize((256, 256))
+    # convert image to tensor 1x3x256x256
+    image = transforms.ToTensor()(image)
+    # add batch dimension 1x1x3x256x256
+    image = image.unsqueeze(0)
+    # predict the class of the image and % accuracy
+    with torch.no_grad():
+        output = model(image)
+        _, preds = torch.max(output, 1)
+        class_name = classes[preds]
+        if class_name.split('___')[0] != 'Squash':
+            return {"class_name": None}
+        else:
+            return {"class_name": class_name, "accuracy": float(torch.max(F.softmax(output, dim=1)))}
+        
+
 
 
 """ # requirements.txt
