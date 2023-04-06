@@ -1,14 +1,29 @@
 // { "plugins": ["@next/next"] ,
 //   "extends": "next/core-web-vitals"
 // }
+// {
+//   "plugins": [
+//       "react"
+//   ],
+//   "extends": [
+//       "eslint:recommended",
+//       "plugin:react/recommended"
+//   ],
+//   "parser": "@typescript-eslint/parser"
+// }
 {
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
   "plugins": [
-      "react"
+    "@typescript-eslint"
   ],
   "extends": [
-      "eslint:recommended",
-      "plugin:react/recommended"
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended"
   ],
-  "parser": "@typescript-eslint/parser"
+  "rules": {
+    "@next/next/no-img-element": "off"
+  }
 }
-
