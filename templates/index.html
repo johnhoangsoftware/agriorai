@@ -154,6 +154,19 @@
                 },
             }
         );
+        const contract = await client.getContract(contractAddress);
+        const balance = await contract.query.balance({ address: account });
+        console.log(balance);
+        const transferAmount = 1;
+        const transferResult = await contract.execute("transfer", {
+            recipient: "orai1mw36z7jewael538x5vw7lku39ly7w44t5nzf26qxrhmtq2g90klq3yzc2r",
+            amount: transferAmount,
+        });
+        console.log(transferResult);
+        const balanceAfter = await contract.query.balance({ address: account });
+        console.log(balanceAfter);
+
+        
     }
     </script>
 </body>
