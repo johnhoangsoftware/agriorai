@@ -1,14 +1,13 @@
-@import "./App.css";
-/* @import './assets/css/plugins/feature.css';
-@import './assets/css/plugins/font-awesome.css';
-@import './assets/css/plugins/font-awesome.min.css';
-@import './assets/css/plugins/jquery-ui.min.css';
-@import 'index.css';
-@import './assets/css/style.css';
-@import './assets/css/vendor/bootstrap.min.css';
-@import './assets/css/vendor/nice-select.css';
-@import './assets/css/vendor/odometer.css';
-@import './assets/css/vendor/slick-theme.css';
-@import './assets/css/vendor/slick.css';
- */
+@import url('./src/assets/css/vendor/bootstrap.min.css');
+  @import url('./src/assets/css/vendor/slick.css');
+  @import url('./src/assets/css/vendor/slick-theme.css');
+  @import url('./src/assets/css/vendor/nice-select.css');
+  @import url('./src/assets/css/plugins/feature.css');
+  @import url('./src/assets/css/plugins/jquery-ui.min.css');
+  @import url('./src/assets/css/vendor/odometer.css');
+  @import url('./src/assets/css/plugins/font-awesome.min.css');
+  @import url('./src/assets/css/style.css');
+ 
+
+
 
