@@ -134,6 +134,26 @@
         const contractAddress = "orai1mw36z7jewael538x5vw7lku39ly7w44t5nzf26qxrhmtq2g90klq3yzc2r";
         //await window.keplr.enable(chainId);
         await window.keplr.suggestToken(chainId,contractAddress);
+
+        // send token with keplr wallet
+        const offlineSigner = window.getOfflineSigner(chainId);
+        const accounts = await offlineSigner.getAccounts();
+        const account = accounts[0].address;
+        const client = new SigningCosmWasmClient(
+            "https://testnet.lcd.orai.io",
+            account,
+            offlineSigner,
+            window.getEnigmaUtils(chainId),
+            {
+                gasPrice: 0.025,
+                gasLimits: {
+                    upload: 1500000,
+                    init: 600000,
+                    exec: 200000,
+                    send: 80000,
+                },
+            }
+        );
     }
     </script>
 </body>
