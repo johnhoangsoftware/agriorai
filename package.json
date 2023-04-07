@@ -1,5 +1,5 @@
 {
-  "name": "Criptic",
+  "name": "Agriblock",
   "version": "2.0.0",
   "private": true,
   "scripts": {
@@ -11,6 +11,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@cosmjs/stargate": "^0.30.1",
     "@headlessui/react": "^1.7.13",
     "@hookform/resolvers": "^2.9.11",
     "@next/font": "^13.2.4",
@@ -52,6 +53,8 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
+    "@keplr-wallet/types": "^0.11.55",
+    "@owallet/types": "^0.0.2",
     "@types/classnames": "^2.3.1",
     "@types/js-cookie": "^3.0.3",
     "@types/node": "18.15.11",

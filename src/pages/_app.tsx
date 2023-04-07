@@ -41,7 +41,7 @@ function CustomApp({ Component, pageProps }: AppPropsWithLayout) {
           name="viewport"
           content="width=device-width, initial-scale=1 maximum-scale=1"
         />
-        <title>Criptic - React Next Web3 NFT Crypto Dashboard Template</title>
+        <title>Agriblock</title>
       </Head>
       <QueryClientProvider client={queryClient}>
         <ThemeProvider

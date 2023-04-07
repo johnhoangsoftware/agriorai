@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import Image from '@/components/ui/image';
 import metamaskLogo from '@/assets/images/metamask.svg';
+import owalletLogo from '@/assets/images/owallet.png';
 import { WalletContext } from '@/lib/hooks/use-connect';
 import { useModal } from '@/components/modal-views/context';
 import { useContext, useEffect } from 'react';
@@ -35,10 +36,20 @@ export default function SelectWallet({ ...props }) {
         </span>
       </div>
 
+      <div
+        className="mt-12 flex h-14 w-full cursor-pointer items-center justify-between rounded-lg bg-gradient-to-l from-[#96c3e2] to-[#2673fa] px-4 text-base text-white transition-all hover:-translate-y-0.5"
+        onClick={connectToWallet}
+      >
+        <span>Owallet</span>
+        <span className="h-auto w-9">
+          <Image src={owalletLogo} alt="owallet" width={36} />
+        </span>
+      </div>
+
       {error && (
         <p className="mt-3 text-center text-xs text-red-500">
-          Please install Metamask plugin in your browser in order to connect
-          wallet.
+          Please install Metamask or Owallet plugin in your browser in order to
+          connect wallet.
         </p>
       )}
     </div>
