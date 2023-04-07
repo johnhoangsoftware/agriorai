@@ -2,7 +2,9 @@ import React from 'react';
 const IndexAgriblock = () => {
     return (
         <>
+
             <body class="home-sticky-pin sidebar-header scrollspy-example position-relative" data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" tabindex="0">
+
                 <div class="d-none d-lg-block">
                     <div class="header-area left-header-style d-flex">
                         <div class="logo-area logo-custom-css">
@@ -18,21 +20,6 @@ const IndexAgriblock = () => {
                                     <li class="nav-item"><a class="nav-link" href="#"> <i data-feather="trending-up"></i>Vote Star</a></li>
                                 </ul>
                             </nav>
-                            <div class="help-center-area mainmenu-nav mt--30">
-                                <ul class="mainmenu">
-                                    <li class="nav-item"><a class="nav-link" href="#"> <i data-feather="settings"></i>Settings</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="support.html"> <i data-feather="activity"></i>Help Center</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="authore-profile">
-                            <div class="thumbnail">
-                                <img src="./src/assets/images/client/testimonial-1.jpg" alt="Nft_marketplaces" />
-                            </div>
-                            <div class="au-content">
-                                <p class="name">Hao</p>
-                                <p class="blc">Balance:<span class="value">12ETH</span></p>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -40,7 +27,7 @@ const IndexAgriblock = () => {
                     <div class="inner">
                         <div class="header-top">
                             <div class="logo logo-custom-css">
-                                <a class="logo-light" href="index.html"><img src="./src/assets/images/logo/logo-white.png" alt="nft-logo" /></a>
+                                <a class="logo-light" href="index.html"><img src="/./src/assets/images/logo/logo-white.png" alt="nft-logo" /></a>
                                 <a class="logo-dark" href="index.html"><img src="./src/assets/images/logo/logo-dark.png" alt="nft-logo" /></a>
                             </div>
                             <div class="close-menu">
@@ -94,7 +81,6 @@ const IndexAgriblock = () => {
                                         <a title="Contact With Us" href="contact.html"><i class="fa fa-bell-o" aria-hidden="true"></i></a>
                                     </div>
                                 </div>
-
                                 <div class="setting-option">
                                     <div class="icon-box">
                                         <a title="Message" href="#"><i class="fa fa-comment-o" aria-hidden="true"></i></a>
@@ -130,9 +116,9 @@ const IndexAgriblock = () => {
                                 </div>
                             </div>
                         </div>
-                        {/* <!-- top bar End -->
+                        {/* <!-- top bar End --> */}
 
-        <!-- start banner area --> */}
+                        {/* <!-- start banner area --> */}
                         <div class="banner-area pt--25">
                             <div class="container-fluid">
                                 <div class="row">
@@ -233,10 +219,10 @@ const IndexAgriblock = () => {
                                                 <img class="community-img" src="./src/assets/images/blog/community/community-post-01.jpg" alt="Nft_Community-image" />
                                             </div>
                                         </div>
-                                        {/* <!-- end Community single box -->
+                                        {/* <!-- end Community single box --> */}
 
 
-                        <!-- start Community single box --> */}
+                                        {/* <!-- start Community single box --> */}
                                         <div class="single-community-box">
                                             <div class="community-bx-header">
                                                 <div class="header-left">
@@ -278,9 +264,9 @@ const IndexAgriblock = () => {
                                                 <img class="community-img" src="./src/assets/images/blog/community/community-post-02.jpg" alt="Nft_Community-image" />
                                             </div>
                                         </div>
-                                        {/* <!-- end Community single box -->
+                                        {/* <!-- end Community single box --> */}
 
-                        <!-- start Community single box --> */}
+                                        {/* <!-- start Community single box --> */}
                                         <div class="single-community-box">
                                             <div class="community-bx-header">
                                                 <div class="header-left">
@@ -308,9 +294,9 @@ const IndexAgriblock = () => {
                                                 <img class="community-img" src="./src/assets/images/blog/community/community-post-03.jpg" alt="Nft_Community-image" />
                                             </div>
                                         </div>
-                                        {/* <!-- end Community single box -->
+                                        {/* <!-- end Community single box --> */}
 
-                        <!-- start Community single box --> */}
+                                        {/* <!-- start Community single box --> */}
                                         <div class="single-community-box">
                                             <div class="community-bx-header">
                                                 <div class="header-left">
@@ -338,9 +324,9 @@ const IndexAgriblock = () => {
                                                 <img class="community-img" src="./src/assets/images/blog/community/community-post-04.jpg" alt="Nft_Community-image" />
                                             </div>
                                         </div>
-                                        {/* <!-- end Community single box -->
+                                        {/* <!-- end Community single box --> */}
 
-                        <!-- start Community single box --> */}
+                                        {/* <!-- start Community single box --> */}
                                         <div class="single-community-box">
                                             <div class="community-bx-header">
                                                 <div class="header-left">
@@ -368,9 +354,9 @@ const IndexAgriblock = () => {
                                                 <img class="community-img" src="./src/assets/images/blog/community/community-post-05.jpg" alt="Nft_Community-image" />
                                             </div>
                                         </div>
-                                        {/* <!-- end Community single box -->
+                                        {/* <!-- end Community single box --> */}
 
-                        <!-- start Community single box --> */}
+                                        {/* <!-- start Community single box --> */}
                                         <div class="single-community-box">
                                             <div class="community-bx-header">
                                                 <div class="header-left">
@@ -407,31 +393,29 @@ const IndexAgriblock = () => {
                 </div>
 
                 <div class="header-right-fixed">
-
+                    {/* <!-- notificatio area --> */}
                     <div class="rn-notification-area right-fix-notice">
-                        <div class="h--100">
-                            <div class="notice-heading">
-                                <h4>Profile</h4>
-                            </div>
-                        </div>
                         <div class="rn-notification-wrapper">
-                            <div class="header-area left-header-style d-flex">
-                                <div class="authore-profile">
-                                    <div class="thumbnail">
-                                        <img src="./src/assets/images/client/testimonial-1.jpg" alt="Nft_marketplaces" />
-                                    </div>
-                                    <div class="au-content">
-                                        <p class="name">Hao</p>
-                                        <p class="blc">Balance:<span class="value">12ETH</span></p>
-                                    </div>
+                            <div class="authore-profile">
+                                <div class="thumbnail">
+                                    <img src="./src/assets/images/client/testimonial-1.jpg" alt="Nft_marketplaces" />
+                                </div>
+                                <div class="au-content">
+                                    <p class="name">Hao</p>
+                                    <p class="blc">Balance:<span class="value">12ETH</span></p>
+                                    <p class="blc">Balance:<span class="value">12ETH</span></p>
+                                    <p class="blc">Balance:<span class="value">12ETH</span></p>
+                                    <p class="blc">Balance:<span class="value">12ETH</span></p>
+                                    <p class="blc">Balance:<span class="value">12ETH</span></p>
+                                    <p class="blc">Balance:<span class="value">12ETH</span></p>
+                                    <p class="blc">Balance:<span class="value">12ETH</span></p>
                                 </div>
                             </div>
-                            {/* <!-- End single notification --> */}
                         </div>
                     </div>
-                    {/* <!-- notificatio area End -->
+                    {/* <!-- notificatio area End --> */}
 
-    <!-- start creators area --> */}
+                    {/* <!-- start creators area --> */}
                     <div class="rn-creators-area right-fix-notice creators mt--30">
                         <div class="h--100">
                             <div class="notice-heading">
@@ -466,8 +450,8 @@ const IndexAgriblock = () => {
                                 </div>
                                 <a href="#" class="btn btn-primary-alta">Follow</a>
                             </div>
-                            {/* <!-- single authore end -->
-            <!-- single authore --> */}
+                            {/* <!-- single authore end --> */}
+                            {/* <!-- single authore --> */}
                             <div class="top-seller-inner-one">
                                 <div class="top-seller-wrapper">
                                     <div class="thumbnail varified">
@@ -484,8 +468,8 @@ const IndexAgriblock = () => {
                                 </div>
                                 <a href="#" class="btn btn-primary-alta">Follow</a>
                             </div>
-                            {/* <!-- single authore end -->
-            <!-- single authore --> */}
+                            {/* <!-- single authore end --> */}
+                            {/* <!-- single authore --> */}
                             <div class="top-seller-inner-one">
                                 <div class="top-seller-wrapper">
                                     <div class="thumbnail">
@@ -503,8 +487,8 @@ const IndexAgriblock = () => {
                                 </div>
                                 <a href="#" class="btn btn-primary-alta">Follow</a>
                             </div>
-                            {/* <!-- single authore end -->
-            <!-- single authore --> */}
+                            {/* <!-- single authore end --> */}
+                            {/* <!-- single authore --> */}
                             <div class="top-seller-inner-one">
                                 <div class="top-seller-wrapper">
                                     <div class="thumbnail varified">
@@ -521,8 +505,8 @@ const IndexAgriblock = () => {
                                 </div>
                                 <a href="#" class="btn btn-primary-alta">Follow</a>
                             </div>
-                            {/* <!-- single authore end -->
-            <!-- single authore --> */}
+                            {/* <!-- single authore end --> */}
+                            {/* <!-- single authore --> */}
                             <div class="top-seller-inner-one">
                                 <div class="top-seller-wrapper">
                                     <div class="thumbnail varified">
@@ -539,8 +523,8 @@ const IndexAgriblock = () => {
                                 </div>
                                 <a href="#" class="btn btn-primary-alta">Follow</a>
                             </div>
-                            {/* <!-- single authore end -->
-            <!-- single authore --> */}
+                            {/* <!-- single authore end --> */}
+                            {/* <!-- single authore --> */}
                             <div class="top-seller-inner-one">
                                 <div class="top-seller-wrapper">
                                     <div class="thumbnail">
@@ -557,8 +541,8 @@ const IndexAgriblock = () => {
                                 </div>
                                 <a href="#" class="btn btn-primary-alta">Follow</a>
                             </div>
-                            {/* <!-- single authore end -->
-            <!-- single authore --> */}
+                            {/* <!-- single authore end --> */}
+                            {/* <!-- single authore --> */}
                             <div class="top-seller-inner-one">
                                 <div class="top-seller-wrapper">
                                     <div class="thumbnail varified">
@@ -575,8 +559,8 @@ const IndexAgriblock = () => {
                                 </div>
                                 <a href="#" class="btn btn-primary-alta">Follow</a>
                             </div>
-                            {/* <!-- single authore end -->
-            <!-- single authore --> */}
+                            {/* <!-- single authore end --> */}
+                            {/* <!-- single authore --> */}
                             <div class="top-seller-inner-one">
                                 <div class="top-seller-wrapper">
                                     <div class="thumbnail">
@@ -594,8 +578,8 @@ const IndexAgriblock = () => {
                                 </div>
                                 <a href="#" class="btn btn-primary-alta">Follow</a>
                             </div>
-                            {/* <!-- single authore end -->
-            <!-- single authore --> */}
+                            {/* <!-- single authore end --> */}
+                            {/* <!-- single authore --> */}
                             <div class="top-seller-inner-one">
                                 <div class="top-seller-wrapper">
                                     <div class="thumbnail varified">
@@ -612,8 +596,8 @@ const IndexAgriblock = () => {
                                 </div>
                                 <a href="#" class="btn btn-primary-alta">Follow</a>
                             </div>
-                            {/* <!-- single authore end -->
-            <!-- single authore --> */}
+                            {/* <!-- single authore end --> */}
+                            {/* <!-- single authore --> */}
                             <div class="top-seller-inner-one">
                                 <div class="top-seller-wrapper">
                                     <div class="thumbnail">
@@ -651,9 +635,9 @@ const IndexAgriblock = () => {
                         </div>
                     </div>
                 </div>
-                {/* <!-- End Footer Area  -->
+                {/* <!-- End Footer Area  --> */}
 
-<!-- Modal --> */}
+                {/* <!-- Modal --> */}
                 <div class="rn-popup-modal share-modal-wrapper modal fade" id="shareModal" tabindex="-1" aria-hidden="true">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i data-feather="x"></i></button>
                     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">

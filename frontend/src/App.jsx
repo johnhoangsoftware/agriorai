@@ -3,7 +3,9 @@ import IndexAgriblock from './component/IndexAgriblock';
 import { useState } from 'react';
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import ProductDetail from './component/ProductDetail';
+import About from './component/About';
+import CheckIn from './component/CheckinAgriBlock';
+import MarketPlace from './component/MarketPlace';
 function App() {
   const [count, setCount] = useState(0)
   return (
@@ -37,10 +39,11 @@ function App() {
       </Helmet>
       <div className="App">
         <Routes>
-          <Route path="/home" >
-            <Route index element={<IndexAgriblock />} />
-            <Route path="thong" element={<ProductDetail/>} />
-          </Route>
+
+          <Route path="/" element={<IndexAgriblock />} />
+          <Route path="about" element={<About />} />
+          <Route path="checkIn" element={<CheckIn />} />
+          <Route path="marketPalce" element={<MarketPlace />} />
         </Routes>
       </div>
     </>
