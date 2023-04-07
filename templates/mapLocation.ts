@@ -70,5 +70,5 @@ function addAllMarkers(map: mapboxgl.Map) {
       addMarker(map, marker.latitude, marker.longitude, marker.nameUser, marker.typeIcon);
    });
 }
-
+addAllMarkers(createMapLocation(10.762622, 106.660172));
 export { createMapLocation, addMarker, addAllMarkers };
