@@ -33,7 +33,7 @@ const BlockchainOptions = [
     icon: <Ethereum />,
   },
   {
-    id: 2,
+    id: 2,d
     name: 'Flow',
     value: 'flow',
     icon: <Flow />,

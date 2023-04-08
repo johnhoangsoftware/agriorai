@@ -22,7 +22,7 @@ export default function ModernScreen() {
         description="Criptic - React Next Web3 NFT Crypto Dashboard Template"
       />
       <div className="flex flex-wrap">
-        <div className="mb-8 w-full sm:mb-0 sm:w-1/2 sm:ltr:pr-6 sm:rtl:pl-6 md:w-[calc(100%-256px)] lg:w-[calc(100%-288px)] 2xl:w-[calc(100%-320px)] 3xl:w-[calc(100%-358px)]">
+        <div className="mb-8 w-full sm:mb-0 sm:w-4/4 sm:ltr:pr-6 sm:rtl:pl-6 md:w-[calc(100%-256px)] lg:w-[calc(100%-288px)] 2xl:w-[calc(100%-320px)] 3xl:w-[calc(100%-358px)]">
           <CoinSlider coins={coinSlideData} />
         </div>
         <div className="w-full sm:w-1/2 md:w-64 lg:w-72 2xl:w-80 3xl:w-[358px]">
@@ -37,21 +37,60 @@ export default function ModernScreen() {
               My Balance
             </h3>
             <div className="mb-7 text-center font-medium tracking-tighter text-gray-900 dark:text-white xl:text-2xl 3xl:mb-8 3xl:text-[32px]">
-              $10,86,000
+              $10,86,0
             </div>
             <TopupButton />
           </div>
         </div>
       </div>
 
-      <div className="mt-8 grid gap-6 sm:my-10 md:grid-cols-2">
+      {/* <div className="mt-8 grid gap-6 sm:my-10 md:grid-cols-2">
         <LiquidityChart />
         <VolumeChart />
+      </div> */}
+      <br />
+      {/* div bài viết */}
+    <div>
+    <div className="rounded-lg shadow-md p-4 mb-4 ">
+        <div className="flex items-start ml-4">
+          <img src="https://via.placeholder.com/50" alt="Avatar" className="w-10 h-10 rounded-full mr-3" />
+          <div>
+            <a href="#" className="font-semibold text-gray-900 hover:text-blue-600">Nguyen Van A</a>
+            <div className="text-gray-600 text-sm">April 7 at 10:30 AM</div>
+          </div>
+        </div>
+        <div className="mt-4 max-w-2xl ml-5 text-align " >
+          <p className="text-gray-800">Hello everyone, this is my first post on Facebook. I hope you all have a great day!</p>
+          <img src="https://via.placeholder.com/500x250" alt="Post image" className="mt-4 w-70%" />
+        </div>
+        <div className="flex items-center justify-between mt-4 ml-5">
+          <div className="flex items-center space-x-3">
+            <a href="#" className="flex items-center text-gray-600 hover:text-blue-600">
+              <i className="far fa-thumbs-up"></i>
+              <span className="ml-1">Like</span>
+            </a>
+            <a href="#" className="flex items-center text-gray-600 hover:text-blue-600">
+              <i className="far fa-comment-alt"></i>
+              <span className="ml-1">Comment</span>
+            </a>
+            <a href="#" className="flex items-center text-gray-600 hover:text-blue-600">
+              <i className="far fa-share-square"></i>
+              <span className="ml-1">Share</span>
+            </a>
+          </div>
+          <div className="flex items-center">
+            <a href="#" className="text-gray-600 hover:text-blue-600">
+              <i className="far fa-eye"></i>
+              <span className="ml-1">15 views</span>
+            </a>
+          </div>
+        </div>
       </div>
+    </div>
 
-      <div className="my-8 sm:my-10">
+      {/* <div className="my-8 sm:my-10">
         <TopCurrencyTable />
-      </div>
+      </div> */}
 
       <div className="flex flex-wrap">
         <div
@@ -66,7 +105,7 @@ export default function ModernScreen() {
             'order-first mb-8 grid w-full grid-cols-1 gap-6 sm:mb-10 sm:grid-cols-2 lg:order-1 lg:mb-0 lg:flex lg:w-72 lg:flex-col 2xl:w-80 3xl:w-[358px]'
           )}
         >
-          <OverviewChart />
+          {/* <OverviewChart /> */}
           <TopPools />
         </div>
       </div>

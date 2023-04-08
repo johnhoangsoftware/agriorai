@@ -17,6 +17,11 @@ import LivePricingSlider from '@/components/ui/live-pricing-slider';
 import LivePricingSliderRetro from '@/components/ui/live-pricing-slider-retro';
 import CryptoCurrencyPricingSkeleton from '@/components/ui/skeleton/CryptoCurrencyPricingSkeleton';
 import CryptocurrencyPricingRetroTable from '@/components/cryptocurrency-pricing-table/cryptocurrency-pricing-retro-table';
+// import { createMapLocation, addMarker, addAllMarkers } from '@/components/topic/mapLocation';
+import Map, { Marker } from "react-map-gl";
+import "mapbox-gl/dist/mapbox-gl.css";
+import mapboxgl from 'mapbox-gl';
+import { useEffect, useRef, useState } from 'react';
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const queryClient = new QueryClient();
@@ -48,6 +53,19 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
 
 function CoinPrices() {
   const { layout } = useLayout();
+  const [location, setLocation] = useState("");
+  const [doneLoadUseEf, setDoneLoadUseEf] = useState(false);
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition((pos) => {
+      // alert(pos.coords.latitude + ',' + pos.coords.longitude)
+      setLocation(pos.coords.latitude+'/'+ pos.coords.longitude)
+    })
+    setDoneLoadUseEf(true)
+  })
+  if (!doneLoadUseEf) {
+    return <div>Loading...</div>
+  }
+
   // const { isLoading, error } = useCoins();
 
   // if (isLoading) {
@@ -58,15 +76,20 @@ function CoinPrices() {
   //   return <div>Error: {error.message}</div>;
   // }
 
-  if (layout === LAYOUT_OPTIONS.RETRO) {
+  if (layout === LAYOUT_OPTIONS.RETRO) {    
     return (
       <>
+        
         <NextSeo
-          title="Live Pricing"
+          title="Check-in"
           description="Criptic - React Next Web3 NFT Crypto Dashboard Template"
         />
-        <LivePricingSliderRetro limits={3} />
+        <iframe height="700" width="750" src={'http://34.136.250.194:8000/' + location }></iframe>
+        {/* <LivePricingSliderRetro limits={3} />
         <CryptocurrencyPricingRetroTable />
+         */}
+
+        
       </>
     );
   }
@@ -74,11 +97,16 @@ function CoinPrices() {
   return (
     <>
       <NextSeo
-        title="Live Pricing"
+        title="Check-in"
         description="Criptic - React Next Web3 NFT Crypto Dashboard Template"
       />
-      <LivePricingSlider limits={4} />
-      <CryptocurrencyPricingTable />
+
+    <iframe className="rounded-lg w-full h-1000px" height={800} src={'http://34.136.250.194:8000/' + location } allowFullScreen></iframe>
+    
+
+      {/* <LivePricingSlider limits={4} />
+
+      <CryptocurrencyPricingTable /> */}
     </>
   );
 }

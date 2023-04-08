@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <title>Mapbox Example</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='map'></div>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoiaG9hbmdrczUiLCJhIjoiY2xnMGpkNHlhMDczZzNncDkzZW5oaTBpMSJ9.oRcY6IJ3fJdBFS-jhI7BAg';
+        /* Khởi tạo map quanh location có địa chỉ long, lat center, zoom = 15 */
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/navigation-day-v1',
+            center: [105.8341598, 21.0277644],
+            zoom: 16
+        });
+
+
+
+        /* Hàm thêm chicken shop vào map */
+        function addChickenShop(long, lat, name, detail) {
+            const iconChicken = document.createElement('div');
+            iconChicken.className = 'marker';
+            iconChicken.style.backgroundImage = `url(https://cdn.discordapp.com/attachments/1092377385590075453/1092385956201513000/chicken.png)`;
+            iconChicken.style.width = `35px`;
+            iconChicken.style.height = `35px`;
+            iconChicken.style.backgroundSize = '100%';
+            var mark = new mapboxgl.Marker(iconChicken)
+                .setLngLat([long, lat])
+                .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+                    .setHTML('<h3>' + name + '</h3><p>' + detail + '</p>'))
+                .addTo(map);
+        }
+
+        /* Hàm thêm chicken shop vào map */
+        function addChickenShop(long, lat, name, detail) {
+            const iconChicken = document.createElement('div');
+            iconChicken.className = 'marker';
+            iconChicken.style.backgroundImage = `url(https://cdn.discordapp.com/attachments/1092377385590075453/1092385956201513000/chicken.png)`;
+            iconChicken.style.width = `35px`;
+            iconChicken.style.height = `35px`;
+            iconChicken.style.backgroundSize = '100%';
+            var mark = new mapboxgl.Marker(iconChicken)
+                .setLngLat([long, lat])
+                .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+                    .setHTML('<h3>' + name + '</h3><p>' + detail + '</p>'))
+                .addTo(map);
+        }
+
+        /* Hàm thêm chicken shop vào map */
+        function addPigShop(long, lat, name, detail) {
+            const iconPig = document.createElement('div');
+            iconPig.className = 'marker';
+            iconPig.style.backgroundImage = `url(https://cdn.discordapp.com/attachments/1092377385590075453/1092385955941462086/pig.png)`;
+            iconPig.style.width = `35px`;
+            iconPig.style.height = `35px`;
+            iconPig.style.backgroundSize = '100%';
+            var mark = new mapboxgl.Marker(iconPig)
+                .setLngLat([long, lat])
+                .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+                    .setHTML('<h3>' + name + '</h3><p>' + detail + '</p>'))
+                .addTo(map);
+        }
+
+        /* Hàm thêm chicken shop vào map */
+        function addCowShop(long, lat, name, detail) {
+            const iconCow = document.createElement('div');
+            iconCow.className = 'marker';
+            iconCow.style.backgroundImage = `url(https://cdn.discordapp.com/attachments/1092377385590075453/1092385955664633877/gps.png)`;
+            iconCow.style.width = `35px`;
+            iconCow.style.height = `35px`;
+            iconCow.style.backgroundSize = '100%';
+            var mark = new mapboxgl.Marker(iconCow)
+                .setLngLat([long, lat])
+                .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+                    .setHTML('<h3>' + name + '</h3><p>' + detail + '</p>'))
+                .addTo(map);
+        }
+
+        function addShop(long, lat, name, detail) {
+            const iconShop = document.createElement('div');
+            iconShop.className = 'marker';
+            iconShop.style.backgroundImage = `url(https://cdn.discordapp.com/attachments/1092377385590075453/1092383797456146482/location.png)`;
+            iconShop.style.width = `35px`;
+            iconShop.style.height = `35px`;
+            iconShop.style.backgroundSize = '100%';
+            var mark = new mapboxgl.Marker(iconShop)
+                .setLngLat([long, lat])
+                .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+                    .setHTML('<h3>' + name + '</h3><p>' + detail + '</p>'))
+                .addTo(map);
+        }
+
+        /* Hàm thêm chicken shop vào map */
+        function addAppleShop(long, lat, name, detail) {
+            const iconApple = document.createElement('div');
+            iconApple.className = 'marker';
+            iconApple.style.backgroundImage = `url(https://cdn.discordapp.com/attachments/1092377385590075453/1092387041330876466/local-business.png)`;
+            iconApple.style.width = `35px`;
+            iconApple.style.height = `35px`;
+            iconApple.style.backgroundSize = '100%';
+            var mark = new mapboxgl.Marker(iconApple)
+                .setLngLat([long, lat])
+                .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+                    .setHTML('<h3>' + name + '</h3><p>' + detail + '</p>'))
+                .addTo(map);
+        }
+
+
+
+
+
+
+
+
+
+
+        /* Hàm for loop để thêm 100 địa điểm random (chicken, apple, cow, pig, shop ) vào map xung quanh địa điểm lat, long */
+        for (var i = 0; i < 100; i++) {
+            var long = 105.8341598 + Math.random() * 0.01;
+            var lat = 21.0277644 + Math.random() * 0.01;
+            var name = "Cửa hàng " + i;
+            var detail = "Chi tiết cửa hàng " + i;
+            var type = Math.floor(Math.random() * 5);
+            if (type == 0) {
+                addChickenShop(long, lat, name, detail);
+            } else if (type == 1) {
+                addAppleShop(long, lat, name, detail);
+            } else if (type == 2) {
+                addCowShop(long, lat, name, detail);
+            } else if (type == 3) {
+                addPigShop(long, lat, name, detail);
+            } else {
+                addShop(long, lat, name, detail);
+            }
+        }
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

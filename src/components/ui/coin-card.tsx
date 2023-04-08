@@ -77,11 +77,11 @@ export default function CoinSlider({ coins }: CoinSliderProps) {
       spaceBetween: 24,
     },
     1280: {
-      slidesPerView: 2,
+      slidesPerView: 3,
       spaceBetween: 24,
     },
     1536: {
-      slidesPerView: 2,
+      slidesPerView: 3,
       spaceBetween: 24,
     },
     1700: {

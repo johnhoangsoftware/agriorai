@@ -9,6 +9,7 @@ const routes = {
   farms: '/farms',
   createNft: '/create-nft',
   nftDetails: '/nft-details',
+  aiTool: '/ai-tool',
   search: '/search',
   notification: '/notifications',
   vote: '/vote',

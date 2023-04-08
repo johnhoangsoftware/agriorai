@@ -1,24 +1,26 @@
 export function CompassIcon(props: React.SVGAttributes<{}>) {
   return (
-    <svg
-      width="18"
-      height="18"
-      viewBox="0 0 18 18"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
-      <g clipPath="url(#clip0_5_92)">
-        <path
-          d="M8.99938 -0.00188446C4.03477 -0.00187802 0 4.03853 0 9.00251C0 13.9665 4.03477 18.0019 8.99938 18.0019C13.964 18.0019 18 13.9665 18 9.00251C18 4.03853 13.964 -0.00189088 8.99938 -0.00188446V-0.00188446ZM8.35889 1.31675V1.9296C8.35954 2.28324 8.64573 2.56996 8.99938 2.57134C9.35498 2.57262 9.64419 2.28521 9.64488 1.9296V1.31675C13.3964 1.6269 16.375 4.60545 16.6851 8.35701H16.071C15.7159 8.35829 15.4292 8.6474 15.4305 9.00251C15.4318 9.35567 15.7179 9.64162 16.071 9.64299H16.6851C16.3772 13.3965 13.3981 16.3734 9.64488 16.6833V16.0754C9.64616 15.7183 9.35645 15.4285 8.99938 15.4299C8.64426 15.4312 8.3575 15.7203 8.35889 16.0754V16.6833C4.60374 16.3756 1.62629 13.3981 1.31863 9.64299H1.92647C2.28159 9.64428 2.57058 9.35763 2.57197 9.00251C2.57325 8.64543 2.28355 8.35561 1.92647 8.35701H1.31863C1.62851 4.60379 4.6054 1.62467 8.35889 1.31675V1.31675ZM11.9694 5.18979L7.38311 7.02081C7.21736 7.08673 7.08609 7.21801 7.02016 7.38375L5.18915 11.9701C4.97822 12.4991 5.50278 13.0237 6.03181 12.8128L10.6156 10.978C10.7807 10.912 10.9114 10.7813 10.9773 10.6163L12.8121 6.03246C12.9067 5.79557 12.8536 5.52527 12.6765 5.34172C12.401 5.07495 12.1064 5.1433 11.9694 5.18979V5.18979ZM11.0414 6.95674L9.87344 9.87783L6.95235 11.0458L8.12028 8.12468L11.0414 6.95674Z"
-          fill="currentColor"
-        />
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.0" id="Layer_1" width="22" height="22" viewBox="0 0 60 60" enable-background="new 0 0 18 18"  fill="none" stroke="#000000" stroke-width="0.64">
+      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+      <g id="SVGRepo_iconCarrier"> <g data-name="12 site" id="_12_site">
+
+      <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier">
+        <path fill="currentColor" d="M69 150.936C144.654 111.512 218.822 115.319 300.542 136.059" stroke="#000000" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"></path> 
+        <path fill="currentColor" d="M108.01 121.189C143.403 6.75972 229.61 30.2203 260.274 122" stroke="#000000" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"></path> 
+        <path fill="currentColor" d="M111 161C95.0002 161.56 111 177.233 121 185C111 280 257 278 247 178C253.667 172 263 159.2 247 156" stroke="#000000" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"></path> 
+        <path fill="currentColor" d="M165 174C165 170.678 165 167.332 165 164" stroke="#000000" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"></path> 
+        <path fill="currentColor" d="M202 174C199.863 170.684 200.002 167.36 200.002 164" stroke="#000000" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"></path> 
+        <path fill="currentColor" d="M198.684 211C190.46 217.142 177.038 217.142 171 213.783" stroke="#000000" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"></path> 
+        <path fill="currentColor" d="M81.6422 343.665C78.0834 239.939 236.75 244.476 262.245 283.163C275.092 302.657 277.633 332.199 281.665 356" stroke="#000000" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"></path> 
+        <path fill="currentColor" d="M132.212 266.677C131.918 278.857 132.397 291.033 132.975 303.161" stroke="#000000" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"></path> 
+        <path fill="currentColor" d="M135.693 307.774C164.524 304.109 196.079 310.137 223.779 308.152" stroke="#000000" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"></path> 
+        <path fill="currentColor" d="M230.188 274.226C224.319 299.554 229.685 324.313 229.685 349.71" stroke="#000000" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"></path> 
+        <path fill="currentColor" d="M132.097 285.548C134.539 306.642 132.727 328.854 135.517 349.71" stroke="#000000" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"></path> 
+        <path fill="currentColor" d="M253.604 197.254C241.259 328.583 363.287 276.062 324.272 191.193" stroke="#000000" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"></path> 
+        <path fill="currentColor" d="M290.423 197.484C290.649 250.303 290.423 303.501 290.423 356" stroke="#000000" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
       </g>
-      <defs>
-        <clipPath id="clip0_5_92">
-          <rect width="18" height="18" fill="currentColor" />
-        </clipPath>
-      </defs>
+      </g>
     </svg>
   );
 }
