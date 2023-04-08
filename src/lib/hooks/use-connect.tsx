@@ -1,9 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState, createContext, ReactNode } from 'react';
 import Web3Modal from 'web3modal';
-import { ethers } from 'ethers';
+import { SigningCosmWasmClient } from '@cosmjs/cosmwasm-stargate';
 import { StargateClient } from '@cosmjs/stargate';
-import { Window as KeplrWindow } from '@keplr-wallet/types';
+import { Keplr } from '@keplr-wallet/types';
+import { List } from 'lodash';
 
 const web3modalStorageKey = 'WEB3_CONNECT_CACHED_PROVIDER';
 const chainId = 'Oraichain-testnet';
@@ -16,14 +17,15 @@ export const WalletProvider = ({ children }: { children: ReactNode }) => {
   const [balance, setBalance] = useState<string | undefined>(undefined);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
-  const web3Modal =
-    typeof window !== 'undefined' && new Web3Modal({ cacheProvider: true });
-
+  // const web3Modal =
+  //   typeof window !== 'undefined' && new Web3Modal({ cacheProvider: true });
+  //(window as any).getKeplr();
   /* This effect will fetch wallet address if user has already connected his/her wallet */
   useEffect(() => {
+    const keplr = (window as any).keplr;
     async function checkConnection() {
       try {
-        if (window && window.keplr) {
+        if (window && keplr) {
           // Check if web3modal wallet connection is available on storage
           if (localStorage.getItem(web3modalStorageKey)) {
             await connectToWallet();
@@ -36,16 +38,17 @@ export const WalletProvider = ({ children }: { children: ReactNode }) => {
       }
     }
     checkConnection();
+    console.log('Connect success' + address + ' ' + balance);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const setWalletAddress = async (provider: any) => {
+  const setWalletAddress = async (keplrProvider: any) => {
     try {
-      const keplrAccounts = provider.getAccounts();
+      const keplrAccounts = await keplrProvider.getAccounts();
       if (keplrAccounts.length > 0) {
-        const web3Address = await keplrAccounts[0].getAddress();
+        const web3Address = keplrAccounts[0].address;
         setAddress(web3Address);
-        getBalance(provider, web3Address);
+        getBalance(keplrProvider, web3Address);
         console.log('Account connected address: ', web3Address);
       }
     } catch (error) {
@@ -55,8 +58,11 @@ export const WalletProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
-  const getBalance = async (offlineSigner: any, walletAddress: string) => {
-    const client = await StargateClient.connect('https://testnet-rpc.orai.io');
+  const getBalance = async (keplrProvider: any, walletAddress: string) => {
+    const client = await SigningCosmWasmClient.connectWithSigner(
+      'https://testnet-rpc.orai.io',
+      keplrProvider
+    );
     const walletBalance = await client.getBalance(walletAddress, token);
     const balance = (parseInt(walletBalance.amount) * 1) / 1e6;
     setBalance(balance.toString());
@@ -65,13 +71,19 @@ export const WalletProvider = ({ children }: { children: ReactNode }) => {
 
   const disconnectWallet = () => {
     setAddress(undefined);
-    web3Modal && web3Modal.clearCachedProvider();
+
+    window.keplr?.disable();
+    // web3Modal && web3Modal.clearCachedProvider();
   };
 
   const checkIfExtensionIsAvailable = () => {
     if (window && window.keplr === undefined) {
       setError(true);
       // web3Modal && web3Modal.toggleModal();
+      window.open(
+        'https://chrome.google.com/webstore/detail/keplr/dmkamcknogkgcdfhhbddcghachkejeap',
+        '_target'
+      );
     }
   };
 
@@ -79,14 +91,19 @@ export const WalletProvider = ({ children }: { children: ReactNode }) => {
     try {
       setLoading(true);
       checkIfExtensionIsAvailable();
-      suggestChain();
-      await window.keplr.enable(chainId);
-      const offlineSigner = await window.getOfflineSigner(chainId);
-      const keplrAccounts = await offlineSigner.getAccounts();
-      const keplrAddress = keplrAccounts[0].address;
-      // await subscribeProvider(connection);
+      // console.log(window.keplr?.getChainInfosWithoutEndpoints());
+      try {
+        await (window as any).keplr.enable(chainId);
+      } catch (e) {
+        suggestChain();
+        await (window as any).keplr.enable(chainId);
+      }
 
-      setWalletAddress(offlineSigner);
+      const keplrProvider = await (window as any).getOfflineSigner(chainId);
+
+      await subscribeProvider(keplrProvider);
+      localStorage.setItem(web3modalStorageKey, '"injected"');
+      setWalletAddress(keplrProvider);
       setLoading(false);
     } catch (error) {
       setLoading(false);
@@ -97,26 +114,26 @@ export const WalletProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
-  const subscribeProvider = async (connection: any) => {
-    connection.on('close', () => {
-      disconnectWallet();
-    });
-    connection.on('accountsChanged', async (accounts: string[]) => {
-      if (accounts?.length) {
-        setAddress(accounts[0]);
-        const provider = new ethers.providers.Web3Provider(connection);
-        getBalance(provider, accounts[0]);
-      } else {
-        disconnectWallet();
-      }
-    });
+  const subscribeProvider = async (keplrProvider: any) => {
+    //   (window as any).keplr.on('close', () => {
+    //     disconnectWallet();
+    //   });
+    //   (window as any).keplr.on('accountsChanged', async (accounts: string[]) => {
+    //     const accounts = keplrProvider.getAccounts();
+    //     if (accounts?.length) {
+    //       setAddress(accounts[0]);
+    //       getBalance(keplrProvider, accounts[0]);
+    //     } else {
+    //       disconnectWallet();
+    //     }
+    //  });
   };
 
   const suggestChain = async () => {
-    if (!window.keplr) {
+    if (!(window as any).keplr) {
       alert('Please install owallet extension');
     } else {
-      if (window.keplr.experimentalSuggestChain) {
+      if ((window as any).keplr.experimentalSuggestChain) {
         try {
           // Keplr v0.6.4 introduces an experimental feature that supports the feature to suggests the chain from a webpage.
           // cosmoshub-3 is integrated to Keplr so the code should return without errors.
@@ -124,7 +141,7 @@ export const WalletProvider = ({ children }: { children: ReactNode }) => {
           // If the user approves, the chain will be added to the user's Keplr extension.
           // If the user rejects it or the suggested chain information doesn't include the required fields, it will throw an error.
           // If the same chain id is already registered, it will resolve and not require the user interactions.
-          await window.keplr.experimentalSuggestChain({
+          await (window as any).keplr.experimentalSuggestChain({
             // Chain-id of the Osmosis chain.
             chainId: 'Oraichain-testnet',
             // The name of the chain to be displayed to the user.
@@ -239,11 +256,11 @@ export const WalletProvider = ({ children }: { children: ReactNode }) => {
       }
     }
     const chainId = 'Oraichain-testnet';
-    await window.keplr.enable(chainId);
+    await (window as any).keplr.enable(chainId);
     const contractAddress =
       'orai1mw36z7jewael538x5vw7lku39ly7w44t5nzf26qxrhmtq2g90klq3yzc2r';
     //await window.keplr.enable(chainId);
-    await window.keplr.suggestToken(chainId, contractAddress);
+    await (window as any).keplr.suggestToken(chainId, contractAddress);
   };
 
   return (

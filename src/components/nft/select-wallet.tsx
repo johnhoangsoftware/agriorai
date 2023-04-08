@@ -26,7 +26,7 @@ export default function SelectWallet({ ...props }) {
         Privacy Policy.
       </p>
 
-      <div
+      {/* <div
         className="mt-12 flex h-14 w-full cursor-pointer items-center justify-between rounded-lg bg-gradient-to-l from-[#ffdc24] to-[#ff5c00] px-4 text-base text-white transition-all hover:-translate-y-0.5"
         onClick={connectToWallet}
       >
@@ -34,7 +34,7 @@ export default function SelectWallet({ ...props }) {
         <span className="h-auto w-9">
           <Image src={metamaskLogo} alt="metamask" width={36} />
         </span>
-      </div>
+      </div> */}
 
       <div
         className="mt-12 flex h-14 w-full cursor-pointer items-center justify-between rounded-lg bg-gradient-to-l from-[#96c3e2] to-[#2673fa] px-4 text-base text-white transition-all hover:-translate-y-0.5"
@@ -48,8 +48,8 @@ export default function SelectWallet({ ...props }) {
 
       {error && (
         <p className="mt-3 text-center text-xs text-red-500">
-          Please install Metamask or Owallet plugin in your browser in order to
-          connect wallet.
+          Please install Owallet plugin in your browser in order to connect
+          wallet.
         </p>
       )}
     </div>

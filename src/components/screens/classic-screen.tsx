@@ -17,7 +17,7 @@ export default function ClassicScreen() {
   return (
     <>
       <NextSeo
-        title="Criptic Classic Demo"
+        title="Agriblock"
         description="Criptic - React Next Web3 NFT Crypto Dashboard Template"
       />
       <div className="flex flex-wrap">
