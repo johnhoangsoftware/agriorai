@@ -84,6 +84,7 @@ export const WalletProvider = ({ children }: { children: ReactNode }) => {
         'https://chrome.google.com/webstore/detail/keplr/dmkamcknogkgcdfhhbddcghachkejeap',
         '_target'
       );
+      throw new Error('Please install Keplr Extensions');
     }
   };
 
