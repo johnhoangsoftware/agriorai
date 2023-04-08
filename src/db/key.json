@@ -1,0 +1,12 @@
+{
+    "type": "service_account",
+    "project_id": "agriblock-382802",
+    "private_key_id": "357bf4f1dbfc6d2e79e1efffc1d451e4fae2a01b",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDA7hiQXYtmYUa2\nN4WH7d71w8Ah/bc6cok2nlHRDCg2PZw4n7TOQYridlMFC5KFYZ4Vl+TGQTxmbGAg\nf3kqN+oNi7MFapYCaAWPwJ+NuJnyc8RJC0TWlPkT9EdPMVhEeEb/Xtzs5dGmG1EB\nMEX74Xd+AAiHg0/GByA0FTGYvfFmmxi6Lqc9HAw9Z7vQkvfN3R7KWDyV6nqCeQLo\nUEHCFleeCioEQIiDVMXrKIaKNd4gPAh+UkzBVpuJ5py/DiNWvTmh7kCK6H+1TTrA\nIv2EZ9eMebt7sfOuqyN97v9HHOl2diz9zO1SGEizqf8dp2bTTBSfy/axlAzFW1a4\ntCvFa43LAgMBAAECggEAAPMabgyaEG7Xs+E5j9CKJC/7Nqk3x9gWcLEfkCwIcmWp\nHdmsgxhtNplOifwJ0UoiIthkpw975uKE/yr+QiThT/HgWOJguOz9Y8c1pGaEeL91\nAduYCrpEoUUDj3s/owkKXQ/dA0eoJmCJmo3+dBx50IN+2SwRjP4KL8yPyWTcMGI7\n22K/aUj8dNCRvNc72a5zHtL+USDKrghwLJaQ9pbPFc6v614xnfH2redsl5NAVF+E\nS6DQ7yWx128/C9q08gNULqq5nz4Wdf6mzWwNwY2itjsgoPGkEHWZ+usEbOKKZYxn\nabdsM5IKa7mMAmkQRNuTF+7KgpUlpjLHrc19BWE/OQKBgQDuSeURjyLJR76xz5/Y\n2payI4EAWHITHtAdiu6Yg4adfcJeVZBmdf5bQO3NL8inchQd8CPdjb9d49i30wMO\nFVTgQM3deUt3UcLuvMNv0qNmc2yXhjOQcp/G3CJm684W5zUBU4w8Ixe7CeUyR+4f\njD30BsIwDd8fFUBAUTFPsLRs4wKBgQDPRSCvUZGZpuYa1gG68cRqRpkADVr4iQo7\nxF/wGc7ayy5AjVCEGC1+uJ9fJyhC/lYc6dVLkO1bASteLxOLBq+J95JXUUSzwdeI\nUOlCvbnBgBfWpzSLX+0sceZB7oQqyPb7y23BI/QZyv+ogYMnwTQZp+gb7Mip9Shf\n48R804nX+QKBgQDU9t3vT4m7co+PwwwNd27vTqPgdyucwxElFiIf1Ize/KJWRQqF\nSDdHv0PI+kfOvzoTd6fWPvUlKJlr0P8N+yqcMc7Lfbhgr4YUcEgLDKpUyhvnYF19\nX7REukFU0rKh7YmF4fGXXZW76CAbTAYZ0/Eaw1+SKxOaaBfAY9A6dKcMGQKBgQCN\nymt2o+Vn6H3ng9lBKx1D2rHWEEzYUt9WTZuX4//XO0GT1VhsVSHiW6hi7qWjVtxQ\nAULx494L8HvbfXbwF43EY0GQTD8kfYnVbgx0pNfLYLZuGIpggin8yppLJkDyB/K2\nA888Xj0h2/YTLy4q5weeOXgWimAnrFeHaYhEIG5e+QKBgBVkEjnqFZv638uMd9c6\ntOIFNvNAbZNrNo3T2HrlwNxTmYgStP/e4h/BzJHrAH3On5qfJ5yRrXGoGhXv9MOw\n3YRV6j1/kZfDWSvgcR5xTcZVOKS5Y/vbQY6Yv6bdCeNIEuxG6lRHldxlWIEwqClS\nP5vQfR+1fqoxXeu9aJRW9vDd\n-----END PRIVATE KEY-----\n",
+    "client_email": "admin-298@agriblock-382802.iam.gserviceaccount.com",
+    "client_id": "118327441130568662388",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/admin-298%40agriblock-382802.iam.gserviceaccount.com"
+  }
