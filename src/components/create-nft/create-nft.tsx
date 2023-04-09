@@ -68,36 +68,16 @@ export default function CreateNFT() {
               <InputLabel title="Upload file" important />
               <Uploader />
             </div>
-
-            {/* NFT price type */}
-            <div className="flex items-center justify-between gap-4">
-              <InputLabel
-                title="Put on marketplace"
-                subTitle="Enter price to allow users instantly purchase your NFT"
+            {/* Price */}
+            <div className="mb-8">
+              <InputLabel title="Price" important />
+              <Input
+                min={0}
+                type="number"
+                placeholder="Enter your price"
+                inputClassName="spin-button-hidden"
               />
-              <div className="shrink-0">
-                <Switch checked={publish} onChange={() => setPublish(!publish)}>
-                  <div
-                    className={cn(
-                      publish
-                        ? 'bg-brand dark:!bg-white'
-                        : 'bg-gray-200 dark:bg-gray-700',
-                      'relative inline-flex h-[22px] w-10 items-center rounded-full transition-colors duration-300'
-                    )}
-                  >
-                    <span
-                      className={cn(
-                        publish
-                          ? 'bg-white ltr:translate-x-5 rtl:-translate-x-5 dark:bg-light-dark'
-                          : 'bg-white ltr:translate-x-0.5 rtl:-translate-x-0.5 dark:bg-light-dark',
-                        'inline-block h-[18px] w-[18px] transform rounded-full bg-white transition-transform duration-200'
-                      )}
-                    />
-                  </div>
-                </Switch>
-              </div>
             </div>
-            {publish && <PriceType value={priceType} onChange={setPriceType} />}
           </div>
 
           <div className="hidden flex-col lg:flex">
@@ -134,17 +114,6 @@ export default function CreateNFT() {
           </div>
         </div>
 
-        {/* Price */}
-        <div className="mb-8">
-          <InputLabel title="Price" important />
-          <Input
-            min={0}
-            type="number"
-            placeholder="Enter your price"
-            inputClassName="spin-button-hidden"
-          />
-        </div>
-
         {/* Name */}
         <div className="mb-8">
           <InputLabel title="Name" important />
@@ -170,7 +139,7 @@ export default function CreateNFT() {
         </div>
 
         {/* Unlockable content */}
-        <div className="mb-3">
+        {/* <div className="mb-3">
           <ToggleBar
             title="Unlockable Content"
             subTitle="Include unlockable content that can only be revealed by the owner of the item."
@@ -182,26 +151,15 @@ export default function CreateNFT() {
               <Textarea placeholder="Enter content (access key, code to redeem, link to a file, etc.)" />
             )}
           </ToggleBar>
-        </div>
-
-        {/* Explicit content */}
-        <div className="mb-8">
-          <ToggleBar
-            title="Explicit &amp; Sensitive Content"
-            subTitle="Set this item as explicit and sensitive content"
-            icon={<Warning />}
-            checked={explicit}
-            onChange={() => setExplicit(!explicit)}
-          />
-        </div>
+        </div> */}
 
         {/* Supply */}
         <div className="mb-8">
           <InputLabel
             title="Supply"
-            subTitle="The number of items that can be minted."
+            subTitle="The number of items that can be buy."
           />
-          <Input type="number" placeholder="1" disabled />
+          <Input type="number" placeholder="1" />
         </div>
 
         {/* Blockchain */}

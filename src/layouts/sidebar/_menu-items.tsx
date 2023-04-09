@@ -17,9 +17,14 @@ export const menuItems = [
     href: routes.home,
   },
   {
-    name: 'Live Pricing',
+    name: 'Check-in',
     icon: <LivePricing />,
     href: routes.livePricing,
+  },
+  {
+    name: 'Marketplace',
+    icon: <PoolIcon />,
+    href: routes.liquidity,
   },
   {
     name: 'Farm',
@@ -27,34 +32,24 @@ export const menuItems = [
     href: routes.farms,
   },
   {
-    name: 'Swap',
+    name: 'Withdrawal',
     icon: <ExchangeIcon />,
     href: routes.swap,
   },
   {
-    name: 'Liquidity',
-    icon: <PoolIcon />,
-    href: routes.liquidity,
-  },
-  {
-    name: 'NFTs',
+    name: 'Farmer Tool',
     icon: <CompassIcon />,
     href: routes.search,
     dropdownItems: [
       {
-        name: 'Explore NFTs',
-        icon: <CompassIcon />,
-        href: routes.search,
-      },
-      {
-        name: 'Create NFT',
+        name: 'Create Products',
         icon: <PlusCircle />,
         href: routes.createNft,
       },
       {
-        name: 'NFT Details',
+        name: 'AI Tools',
         icon: <DiskIcon />,
-        href: routes.nftDetails,
+        href: routes.aiTool,
       },
     ],
   },
