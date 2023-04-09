@@ -32,7 +32,7 @@ export const menuItems = [
     href: routes.farms,
   },
   {
-    name: 'Swap',
+    name: 'Withdrawal',
     icon: <ExchangeIcon />,
     href: routes.swap,
   },
@@ -42,11 +42,6 @@ export const menuItems = [
     href: routes.search,
     dropdownItems: [
       {
-        name: 'Explore NFTs',
-        icon: <CompassIcon />,
-        href: routes.search,
-      },
-      {
         name: 'Create Products',
         icon: <PlusCircle />,
         href: routes.createNft,
@@ -55,11 +50,6 @@ export const menuItems = [
         name: 'AI Tools',
         icon: <DiskIcon />,
         href: routes.aiTool,
-      },
-      {
-        name: 'NFT Details',
-        icon: <DiskIcon />,
-        href: routes.nftDetails,
       },
     ],
   },

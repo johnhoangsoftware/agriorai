@@ -1,14 +1,14 @@
 //images
-import BitcoinImage from '@/assets/images/coin/bitcoin.svg';
-import TetherImage from '@/assets/images/coin/tether.svg';
-import CardanoImage from '@/assets/images/coin/cardano.svg';
-import BinanceImage from '@/assets/images/coin/binance.svg';
+import BitcoinImage from '@/assets/images/coin/watermelon.png';
+import TetherImage from '@/assets/images/coin/apple.png';
+import CardanoImage from '@/assets/images/coin/meet.png';
+import BinanceImage from '@/assets/images/coin/banana.png';
 
 export const coinSlideData = [
   {
     id: '0',
-    name: 'Bitcoin',
-    symbol: 'BTC',
+    name: 'Watermelon',
+    symbol: '$AGB',
     balance: '0.2245',
     usdBalance: '11',
     logo: BitcoinImage,
@@ -18,8 +18,8 @@ export const coinSlideData = [
   },
   {
     id: '1',
-    name: 'Tether',
-    symbol: 'USDT',
+    name: 'Apple',
+    symbol: '$AGB',
     balance: '1.2345',
     usdBalance: '1,03',
     logo: TetherImage,
@@ -29,8 +29,8 @@ export const coinSlideData = [
   },
   {
     id: '2',
-    name: 'Cardano',
-    symbol: 'ADA',
+    name: 'Pork',
+    symbol: '$AGB',
     balance: '1.2370',
     usdBalance: '5.94',
     logo: CardanoImage,
@@ -40,8 +40,74 @@ export const coinSlideData = [
   },
   {
     id: '3',
-    name: 'Binance',
-    symbol: 'BUSD',
+    name: 'Banana',
+    symbol: '$AGB',
+    balance: '240.55',
+    usdBalance: '340.24',
+    logo: BinanceImage,
+    change: '+1.5%',
+    isChangePositive: true,
+    color: '#FBF5D5',
+  },
+  {
+    id: '4',
+    name: 'Banana',
+    symbol: '$AGB',
+    balance: '240.55',
+    usdBalance: '340.24',
+    logo: BinanceImage,
+    change: '+1.5%',
+    isChangePositive: true,
+    color: '#FBF5D5',
+  },
+  {
+    id: '5',
+    name: 'Banana',
+    symbol: '$AGB',
+    balance: '240.55',
+    usdBalance: '340.24',
+    logo: BinanceImage,
+    change: '+1.5%',
+    isChangePositive: true,
+    color: '#FBF5D5',
+  },
+  {
+    id: '6',
+    name: 'Banana',
+    symbol: '$AGB',
+    balance: '240.55',
+    usdBalance: '340.24',
+    logo: BinanceImage,
+    change: '+1.5%',
+    isChangePositive: true,
+    color: '#FBF5D5',
+  },
+  {
+    id: '7',
+    name: 'Banana',
+    symbol: '$AGB',
+    balance: '240.55',
+    usdBalance: '340.24',
+    logo: BinanceImage,
+    change: '+1.5%',
+    isChangePositive: true,
+    color: '#FBF5D5',
+  },
+  {
+    id: '8',
+    name: 'Banana',
+    symbol: '$AGB',
+    balance: '240.55',
+    usdBalance: '340.24',
+    logo: BinanceImage,
+    change: '+1.5%',
+    isChangePositive: true,
+    color: '#FBF5D5',
+  },
+  {
+    id: '9',
+    name: 'Banana',
+    symbol: '$AGB',
     balance: '240.55',
     usdBalance: '340.24',
     logo: BinanceImage,

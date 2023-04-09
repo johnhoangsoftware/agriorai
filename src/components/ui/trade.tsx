@@ -17,16 +17,8 @@ const Listbox = dynamic(() => import('@/components/ui/list-box'));
 
 const tradeMenu = [
   {
-    name: 'Swap',
+    name: 'Withdrawal',
     value: routes.swap,
-  },
-  {
-    name: 'Liquidity',
-    value: routes.liquidity,
-  },
-  {
-    name: 'Vote',
-    value: routes.vote,
   },
 ];
 
@@ -80,19 +72,7 @@ export default function Trade({ children }: React.PropsWithChildren<{}>) {
               onChange={setSelectedMenuItem}
               onSelect={(path) => handleRouteOnSelect(path)}
               className="w-full"
-            >
-              <AnchorLink
-                href={routes.charts}
-                className="inline-flex items-center justify-between gap-1.5 rounded-md px-3 py-2 text-gray-900 hover:bg-gray-100 dark:text-gray-100 dark:hover:bg-gray-700/70"
-              >
-                Charts
-                <ExportIcon className="h-auto w-2.5" />
-              </AnchorLink>
-              <button className="inline-flex items-center justify-between gap-1.5 rounded-md px-3 py-2 uppercase text-gray-900 hover:bg-gray-100 dark:text-gray-100 dark:hover:bg-gray-700/70">
-                Settings
-                <RangeIcon className="h-auto w-3" />
-              </button>
-            </Listbox>
+            ></Listbox>
           )}
           <div className="hidden items-center justify-between text-gray-600 dark:text-gray-400 sm:flex">
             {tradeMenu.map((item) => (
@@ -103,21 +83,6 @@ export default function Trade({ children }: React.PropsWithChildren<{}>) {
                 isActive={item.value === router.pathname}
               />
             ))}
-            <AnchorLink
-              href="/"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5"
-            >
-              Charts
-              <ExportIcon className="h-auto w-2.5" />
-            </AnchorLink>
-            <Button
-              variant="transparent"
-              shape="circle"
-              size="small"
-              className="dark:text-white"
-            >
-              <RangeIcon />
-            </Button>
           </div>
         </nav>
         <AnimatePresence mode={'wait'}>

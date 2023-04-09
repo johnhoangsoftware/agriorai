@@ -1,8 +1,12 @@
 import Image from '@/components/ui/image';
 import { ArrowUp } from '@/components/icons/arrow-up';
-import { Scrollbar, A11y } from 'swiper';
+import { Scrollbar, A11y, Autoplay, EffectCoverflow } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { StaticImageData } from 'next/image';
+import cn from 'classnames';
+import { NFTList } from '@/data/static/nft-list';
+import NFTGrid from '@/components/ui/nft-card';
+import { useGridSwitcher } from '@/lib/hooks/use-grid-switcher';
 
 type CoinCardProps = {
   id: string;
@@ -21,9 +25,7 @@ export function CoinCard({
   symbol,
   logo,
   balance,
-  usdBalance,
-  change,
-  isChangePositive,
+
   color = '#FDEDD4',
 }: CoinCardProps) {
   return (
@@ -40,23 +42,6 @@ export function CoinCard({
       <div className="mb-2 mt-8 text-sm font-medium tracking-wider text-gray-900 lg:text-lg 2xl:text-xl 3xl:text-2xl">
         {balance}
         <span className="uppercase"> {symbol}</span>
-      </div>
-      <div className="flex items-center justify-between text-xs font-medium 2xl:text-sm">
-        <span className="tracking-wider text-gray-600">{usdBalance} USD</span>
-        <span
-          className={`flex items-center  ${
-            isChangePositive ? 'text-green-500' : 'text-red-500'
-          }`}
-        >
-          <span
-            className={`ltr:mr-2 rtl:ml-2 ${
-              !isChangePositive ? 'rotate-180' : ''
-            }`}
-          >
-            <ArrowUp />
-          </span>
-          {change}
-        </span>
       </div>
     </div>
   );
@@ -97,27 +82,29 @@ export default function CoinSlider({ coins }: CoinSliderProps) {
   return (
     <div>
       <Swiper
-        modules={[Scrollbar, A11y]}
+        modules={[Scrollbar, Autoplay]}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+        }}
         spaceBetween={24}
-        slidesPerView={1}
+        slidesPerView={3}
         scrollbar={{ draggable: true }}
         breakpoints={sliderBreakPoints}
         observer={true}
         dir="ltr"
         className="dark:[&_.swiper-scrollbar_>_.swiper-scrollbar-drag]:bg-body/50"
       >
-        {coins.map((coin) => (
-          <SwiperSlide key={coin.id}>
-            <CoinCard
-              id={coin.id}
-              name={coin.name}
-              symbol={coin.symbol}
-              logo={coin.logo}
-              balance={coin.balance}
-              usdBalance={coin.usdBalance}
-              change={coin.change}
-              isChangePositive={coin.isChangePositive}
-              color={coin.color}
+        {NFTList.map((nft) => (
+          <SwiperSlide key={nft.id}>
+            <NFTGrid
+              key={nft.id}
+              name={nft.name}
+              image={nft.image}
+              author={nft.author}
+              authorImage={nft.authorImage}
+              price={nft.price}
+              collection={nft.collection}
             />
           </SwiperSlide>
         ))}
