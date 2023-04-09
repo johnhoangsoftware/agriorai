@@ -16,10 +16,6 @@ import { LAYOUT_OPTIONS } from '@/lib/constants';
 import Info from '@/components/topic/info-post';
 import Content from '@/components/topic/content';
 import Imagetopic from '@/components/topic/image-topic';
-// import { createMapLocation, addMarker, addAllMarkers } from '@/components/topic/mapLocation';
-import Map, { Marker } from 'react-map-gl';
-import 'mapbox-gl/dist/mapbox-gl.css';
-import mapboxgl from 'mapbox-gl';
 import { useEffect, useRef, useState } from 'react';
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
