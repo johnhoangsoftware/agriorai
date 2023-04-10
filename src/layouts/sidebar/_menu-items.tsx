@@ -26,11 +26,11 @@ export const menuItems = [
     icon: <PoolIcon />,
     href: routes.liquidity,
   },
-  {
+  /* {
     name: 'Farm',
     icon: <FarmIcon />,
     href: routes.farms,
-  },
+  }, */
   {
     name: 'Withdrawal',
     icon: <ExchangeIcon />,
@@ -58,7 +58,7 @@ export const menuItems = [
     icon: <ProfileIcon />,
     href: routes.profile,
   },
-  {
+  /* {
     name: 'Vote',
     icon: <VoteIcon />,
     href: routes.vote,
@@ -76,5 +76,5 @@ export const menuItems = [
         href: routes.createProposal,
       },
     ],
-  },
+  }, */
 ];

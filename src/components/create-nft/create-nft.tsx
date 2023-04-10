@@ -91,7 +91,7 @@ export default function CreateNFT() {
                   alt="Cameronwilliamson"
                   className="border-white bg-gray-300 ltr:mr-3 rtl:ml-3 dark:bg-gray-400"
                 />
-                @Cameronwilliamson
+                @AppleFarm
               </div>
               <div className="relative block w-full">
                 <Image
@@ -104,10 +104,10 @@ export default function CreateNFT() {
               </div>
               <div className="p-5">
                 <div className="text-sm font-medium text-black dark:text-white">
-                  Pulses Of Imagination #214
+                  Apple
                 </div>
                 <div className="mt-4 text-lg font-medium text-gray-900 dark:text-white">
-                  0.40 ETH
+                  0.40 AGB
                 </div>
               </div>
             </div>
@@ -163,7 +163,7 @@ export default function CreateNFT() {
         </div>
 
         {/* Blockchain */}
-        <div className="mb-8">
+        {/* <div className="mb-8">
           <InputLabel title="Blockchain" />
           <div className="relative">
             <Listbox value={blockchain} onChange={setBlockChain}>
@@ -202,7 +202,7 @@ export default function CreateNFT() {
               </Transition>
             </Listbox>
           </div>
-        </div>
+        </div> */}
 
         <Button shape="rounded">CREATE</Button>
       </div>

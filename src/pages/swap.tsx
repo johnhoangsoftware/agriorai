@@ -26,12 +26,13 @@ const SwapPage: NextPageWithLayout = () => {
             )}
           >
             <div className="">Balance: 100 $AGB</div>
-            <div className="">Nhap so luong token muon rut:</div>
+            <div className="">
+              Enter the amount of tokens you want to withdraw:
+            </div>
             <input type="number" placeholder="0" min="0"></input>
           </div>
         </div>
         <div className="flex flex-col gap-4 xs:gap-[18px]">
-          <TransactionInfo label={'Min. Received'} />
           <TransactionInfo label={'Price Slippage'} value={'1%'} />
           <TransactionInfo label={'Network Fee'} />
         </div>

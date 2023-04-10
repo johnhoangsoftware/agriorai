@@ -149,7 +149,7 @@ export default function Sidebar({ className }: { className?: string }) {
             >
               <AuthorCard
                 image={AuthorImage}
-                name="Cameron Williamson"
+                name="Nguyen Tien Chinh"
                 role="admin"
               />
             </motion.div>
