@@ -1,11 +1,11 @@
-import connectGoogleBigQuery from './connectdb';
+import connectGoogleBigQuery from './connect';
 import { User } from './User';
 
 // Tạo một client BigQuery
 
 function addUser(data: User[]) {
   // Thêm dữ liệu vào bảng
-  const bigquery = connectGoogleBigQuery();
+  var bigquery_aaaa = connectGoogleBigQuery();
 
   //   async function insertData(data: User[]) {
   //     const [apiResponse] = await bigquery
