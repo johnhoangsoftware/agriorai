@@ -1,4 +1,4 @@
-export function ExchangeIcon(props: React.SVGAttributes<{}>) {
+export function WithdrawalIcon(props: React.SVGAttributes<{}>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

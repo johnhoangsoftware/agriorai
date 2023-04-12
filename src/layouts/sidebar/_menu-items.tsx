@@ -1,14 +1,14 @@
 import routes from '@/config/routes';
 import { HomeIcon } from '@/components/icons/home';
 import { FarmIcon } from '@/components/icons/farm';
-import { PoolIcon } from '@/components/icons/pool';
+import { Marketplace } from '@/components/icons/marketplace';
 import { ProfileIcon } from '@/components/icons/profile';
 import { DiskIcon } from '@/components/icons/disk';
-import { ExchangeIcon } from '@/components/icons/exchange';
+import { WithdrawalIcon } from '@/components/icons/withdrawal';
 import { VoteIcon } from '@/components/icons/vote-icon';
 import { PlusCircle } from '@/components/icons/plus-circle';
 import { CompassIcon } from '@/components/icons/compass';
-import { LivePricing } from '@/components/icons/live-pricing';
+import { CheckIn } from '@/components/icons/check-in';
 
 export const menuItems = [
   {
@@ -18,13 +18,13 @@ export const menuItems = [
   },
   {
     name: 'Check-in',
-    icon: <LivePricing />,
-    href: routes.livePricing,
+    icon: <CheckIn />,
+    href: routes.checkin,
   },
   {
     name: 'Marketplace',
-    icon: <PoolIcon />,
-    href: routes.liquidity,
+    icon: <Marketplace />,
+    href: routes.marketplace,
   },
   /* {
     name: 'Farm',
@@ -33,8 +33,8 @@ export const menuItems = [
   }, */
   {
     name: 'Withdrawal',
-    icon: <ExchangeIcon />,
-    href: routes.swap,
+    icon: <WithdrawalIcon />,
+    href: routes.withdrawal,
   },
   {
     name: 'Farmer Tool',

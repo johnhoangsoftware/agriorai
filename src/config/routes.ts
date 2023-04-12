@@ -1,5 +1,9 @@
 const routes = {
   home: '/',
+  withdrawal: '/withdrawal',
+  marketplace: '/marketplace',
+  checkin: '/check-in',
+
   minimal: '/minimal',
   livePricing: '/live-pricing',
   retro: '/retro',

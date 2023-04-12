@@ -9,7 +9,7 @@ import { SwapIcon } from '@/components/icons/swap-icon';
 import Trade from '@/components/ui/trade';
 import RootLayout from '@/layouts/_root-layout';
 
-const SwapPage: NextPageWithLayout = () => {
+const WithdrawlPage: NextPageWithLayout = () => {
   let [toggleCoin, setToggleCoin] = useState(false);
   return (
     <>
@@ -49,8 +49,8 @@ const SwapPage: NextPageWithLayout = () => {
   );
 };
 
-SwapPage.getLayout = function getLayout(page) {
+WithdrawlPage.getLayout = function getLayout(page) {
   return <RootLayout>{page}</RootLayout>;
 };
 
-export default SwapPage;
+export default WithdrawlPage;

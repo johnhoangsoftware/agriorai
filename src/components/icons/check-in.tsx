@@ -1,4 +1,4 @@
-export function LivePricing(props: React.SVGAttributes<{}>) {
+export function CheckIn(props: React.SVGAttributes<{}>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

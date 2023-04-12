@@ -9,6 +9,7 @@ import { List } from 'lodash';
 const web3modalStorageKey = 'WEB3_CONNECT_CACHED_PROVIDER';
 const chainId = 'Oraichain-testnet';
 const token = 'orai';
+const addressStorageKey = 'ADDRESS_CURRENCY';
 
 export const WalletContext = createContext<any>({});
 
@@ -48,6 +49,8 @@ export const WalletProvider = ({ children }: { children: ReactNode }) => {
       if (keplrAccounts.length > 0) {
         const web3Address = keplrAccounts[0].address;
         setAddress(web3Address);
+        //save address wallet to local storage
+        localStorage.setItem(addressStorageKey, web3Address);
         getBalance(keplrProvider, web3Address);
         console.log('Account connected address: ', web3Address);
       }
@@ -71,8 +74,9 @@ export const WalletProvider = ({ children }: { children: ReactNode }) => {
 
   const disconnectWallet = () => {
     setAddress(undefined);
-
+    localStorage.removeItem(web3modalStorageKey);
     window.keplr?.disable();
+    localStorage.removeItem(addressStorageKey);
     // web3Modal && web3Modal.clearCachedProvider();
   };
 
