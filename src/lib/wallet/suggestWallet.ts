@@ -1,3 +1,5 @@
+import { StargateClient } from '@cosmjs/stargate';
+
 async function suggestWallet() {
   if (!window.keplr) {
     alert('Please install owallet extension');
